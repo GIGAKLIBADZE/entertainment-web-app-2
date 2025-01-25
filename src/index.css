@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss"; 
 
 *, 
 *::before,
@@ -28,3 +28,23 @@ body {
     padding-top: 5rem;
     padding-left: 5rem;
 }
+
+/* @layer components {
+    input:-webkit-autofill {
+        @apply bg-transparent text-current !important
+    }
+
+    input:-moz-placeholder-shown {
+        @apply bg-transparent text-current !important
+    }
+} */
+
+
+/* input:-webkit-autofill {
+    background-color: transparent !important;
+    color: inherit !important; 
+}
+
+input:-moz-placeholder-shown {
+    background-color: transparent !important;
+} */

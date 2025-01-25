@@ -65,12 +65,14 @@ const SignIn: React.FC = () => {
             ) : null}
           </div>
 
-          <button className="w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal text-[#fff] mt-[5.4rem]">
+          <button className="w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal text-[#fff] mt-[5.4rem] cursor-pointer hover:bg-[#fff] hover:text-[#161d2f]">
             Login to your account
           </button>
           <p className="text-[1.5rem] font-light leading-normal text-[#fff] mt-[2.4rem] text-center">
             Don’t have an account?
-            <span className="text-[#fc4747] ml-[0.9rem]">Sign Up</span>
+            <span className="text-[#fc4747] ml-[0.9rem] cursor-pointer">
+              Sign Up
+            </span>
           </p>
         </form>
       </div>
