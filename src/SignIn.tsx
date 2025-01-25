@@ -1,6 +1,9 @@
+import Movie from "/images/movie.png";
+
 const SignIn: React.FC = () => {
   return (
     <>
+      <img src={Movie} alt="Play" />
       <div>
         <h3>Login</h3>
         <form>
