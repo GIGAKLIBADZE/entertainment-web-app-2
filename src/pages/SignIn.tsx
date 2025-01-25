@@ -38,24 +38,33 @@ const SignIn: React.FC = () => {
           Login
         </h3>
         <form onSubmit={checkValidation} className="w-full">
-          <input
-            name="email"
-            type="email"
-            placeholder="Email Address"
-            className="w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[2.3rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
-          />
-          {errors.emailError ? <p>Can't be empty</p> : null}
-          <input
-            name="password"
-            type="text"
-            placeholder="Password"
-            className="w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
-          />
-          {errors.passwordError ? (
-            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747]">
-              Can't be empty
-            </p>
-          ) : null}
+          <div className="relative">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              className="w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[2.3rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+            />
+            {errors.emailError ? (
+              <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
+                Can't be empty
+              </p>
+            ) : null}
+          </div>
+          <div className="relative">
+            <input
+              name="password"
+              type="text"
+              placeholder="Password"
+              className="w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+            />
+            {errors.passwordError ? (
+              <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
+                Can't be empty
+              </p>
+            ) : null}
+          </div>
+
           <button className="w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal text-[#fff] mt-[5.4rem]">
             Login to your account
           </button>
