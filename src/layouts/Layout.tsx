@@ -6,8 +6,9 @@ import TVSeries from "/images/icon-nav-tv-series.svg";
 import Bookmarked from "/images/icon-nav-bookmark.svg";
 import Profile from "/images/image-avatar.png";
 import Search from "/images/icon-search.svg";
+import { Outlet } from "react-router-dom";
 
-const Home: React.FC = () => {
+const Layout: React.FC = () => {
   return (
     <>
       <div className="w-full h-[5.6rem] p-[1.6rem] bg-[#161d2f] flex items-center justify-between">
@@ -52,8 +53,9 @@ const Home: React.FC = () => {
           className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff]"
         />
       </div>
+      <Outlet />
     </>
   );
 };
 
-export default Home;
+export default Layout;
