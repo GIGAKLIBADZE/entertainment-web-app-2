@@ -27,7 +27,7 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem]">
       <img
         src={Movie}
         alt="Play"
