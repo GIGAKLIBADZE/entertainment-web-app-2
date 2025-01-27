@@ -6,15 +6,15 @@ const Search: React.FC = () => {
   console.log(data);
 
   return (
-    <div>
+    <div className="mt-[2.4rem] px-[1.6rem] pb-[1.6rem]">
       {search ? (
         <div>
-          <h2>
-            {lookingFor
+          <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff]">
+            {lookingFor?.length
               ? `Found ${lookingFor?.length} results for 'Earth'`
               : "No result"}
           </h2>
-          <section>
+          <section className="mt-[2.4rem]">
             {lookingFor?.map((item) => (
               <div key={item.title}>
                 <img
