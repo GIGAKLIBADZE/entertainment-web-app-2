@@ -46,11 +46,11 @@ const Layout: React.FC = () => {
         />
       </div>
       <div className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem]">
-        <img src={Search} alt="Search" className="w-[1.8rem] h-[1.8rem]" />
+        <img src={Search} alt="Search" className="w-[1.8rem] h-[1.8rem" />
         <input
           type="text"
           placeholder="Search for movies or TV series"
-          className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff]"
+          className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none"
         />
       </div>
       <Outlet />

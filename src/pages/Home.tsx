@@ -23,8 +23,6 @@ const Home: React.FC = () => {
     fetchData();
   }, []);
 
-  console.log(data);
-  console.log("hi");
   return (
     <div>
       <div className="mt-[2.6rem] pl-[1.6rem]">
