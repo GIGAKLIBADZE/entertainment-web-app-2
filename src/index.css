@@ -19,9 +19,12 @@ body {
     background-color: #10141e;
 }
 
-.class {
-    padding-top: 5rem;
-    padding-left: 5rem;
+.description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: normal;
+    color: #fff;
+    opacity: 0.75;
 }
 
 /* @layer components {
