@@ -9,7 +9,11 @@ const Search: React.FC = () => {
     <div>
       {search ? (
         <div>
-          <h2>Found 2 results for 'Earth'</h2>
+          <h2>
+            {lookingFor
+              ? `Found ${lookingFor?.length} results for 'Earth'`
+              : "No result"}
+          </h2>
           <section>
             {lookingFor?.map((item) => (
               <div key={item.title}>

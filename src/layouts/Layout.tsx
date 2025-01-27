@@ -10,6 +10,7 @@ import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Idata } from "../types/Types";
 import { createContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const MainContext = createContext<{
   fetchData: () => Promise<void>;
@@ -33,6 +34,9 @@ const Layout: React.FC = () => {
   const [lookingFor, setLookingFor] = useState<Idata[] | null | undefined>(
     null
   );
+
+  const navigate = useNavigate();
+  console.log(navigate);
 
   const findResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -112,7 +116,7 @@ const Layout: React.FC = () => {
             className="w-[1.8rem] h-[1.8rem]"
             onClick={() => {
               setSearch(true);
-              // setData(data);
+              navigate("/Profile/Search");
             }}
           />
         </button>
