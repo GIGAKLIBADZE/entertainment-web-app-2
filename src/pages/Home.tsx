@@ -1,10 +1,7 @@
-// import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Idata } from "../types/Types";
 
 const Home: React.FC = () => {
-  //   const { id } = useParams<{ id: string }>();
-
   const [data, setData] = useState<Idata[] | null>(null);
 
   const fetchData = async () => {
@@ -30,18 +27,31 @@ const Home: React.FC = () => {
   console.log("hi");
   return (
     <div>
-      <div>
-        <h2>Trending</h2>
+      <div className="mt-[2.6rem] pl-[1.6rem]">
+        <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff]">
+          Trending
+        </h2>
         <p></p>
-        <section>
-          {data?.map((item) => (
-            <p key={item.title}>{item.title}</p>
-          ))}
-        </section>
-      </div>
-      <div>
-        <h2>Reccomended for you</h2>
         <section></section>
+      </div>
+      <div className="mt-[2.4rem] px-[1.6rem] pb-[6.1rem]">
+        <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff]">
+          Reccomended for you
+        </h2>
+        <section className="mt-[2.4rem]">
+          {/* {data?.map((item) => (
+            <div key={item.title}>
+              <img src={item.thumbnail.regular.small} alt="Movie thumbnail" />
+            </div>
+          ))} */}
+          {data
+            ?.filter((item) => item.isTrending === false)
+            .map((item) => (
+              <div key={item.title}>
+                <img src={item.thumbnail.regular.small} alt="Thumbnail" />
+              </div>
+            ))}
+        </section>
       </div>
     </div>
   );
