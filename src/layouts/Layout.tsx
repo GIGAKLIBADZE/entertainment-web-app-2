@@ -13,16 +13,38 @@ import { createContext } from "react";
 
 export const MainContext = createContext<{
   fetchData: () => Promise<void>;
-  data: Idata[] | null;
-  setData: React.Dispatch<React.SetStateAction<Idata[] | null>>;
+  data: Idata[] | null | undefined;
+  setData: React.Dispatch<React.SetStateAction<Idata[] | null | undefined>>;
+  search: boolean;
+  setSearch: React.Dispatch<React.SetStateAction<boolean>>;
+  lookingFor: Idata[] | null | undefined;
 }>({
   fetchData: async () => {},
   data: null,
   setData: () => {},
+  search: false,
+  setSearch: () => {},
+  lookingFor: null,
 });
 
 const Layout: React.FC = () => {
-  const [data, setData] = useState<Idata[] | null>(null);
+  const [data, setData] = useState<Idata[] | null | undefined>(null);
+  const [search, setSearch] = useState<boolean>(false);
+  const [lookingFor, setLookingFor] = useState<Idata[] | null | undefined>(
+    null
+  );
+
+  const findResult = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const search = (e.target as HTMLFormElement).search.value.toLowerCase();
+
+    const filteredData = data?.filter((item) =>
+      item.title.toLowerCase().includes(search)
+    );
+
+    setLookingFor(filteredData);
+  };
 
   const fetchData = async () => {
     try {
@@ -79,15 +101,38 @@ const Layout: React.FC = () => {
           className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] "
         />
       </div>
-      <div className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem]">
-        <img src={Search} alt="Search" className="w-[1.8rem] h-[1.8rem]" />
+      <form
+        onSubmit={findResult}
+        className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem]"
+      >
+        <button>
+          <img
+            src={Search}
+            alt="Search"
+            className="w-[1.8rem] h-[1.8rem]"
+            onClick={() => {
+              setSearch(true);
+              // setData(data);
+            }}
+          />
+        </button>
         <input
           type="text"
           placeholder="Search for movies or TV series"
           className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none"
+          name="search"
         />
-      </div>
-      <MainContext.Provider value={{ data, setData, fetchData }}>
+      </form>
+      <MainContext.Provider
+        value={{
+          data,
+          setData,
+          fetchData,
+          search,
+          setSearch,
+          lookingFor,
+        }}
+      >
         <Outlet />
       </MainContext.Provider>
     </>
