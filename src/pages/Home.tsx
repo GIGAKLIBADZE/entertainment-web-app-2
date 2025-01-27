@@ -1,27 +1,8 @@
-import { useEffect, useState } from "react";
-import { Idata } from "../types/Types";
+import { MainContext } from "../layouts/Layout";
+import { useContext } from "react";
 
 const Home: React.FC = () => {
-  const [data, setData] = useState<Idata[] | null>(null);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`http://localhost:3003/movie`);
-
-      if (!response.ok) {
-        throw new Error("Something went wrong.");
-      }
-
-      const responseToJson = await response.json();
-      setData(responseToJson);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data } = useContext(MainContext);
 
   return (
     <div>
