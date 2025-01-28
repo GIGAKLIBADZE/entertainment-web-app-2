@@ -2,6 +2,8 @@ import Movie from "/images/movie.png";
 import { useState } from "react";
 import { Ierrors } from "../types/Types";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Sign: React.FC = () => {
   const [errors, setErrors] = useState<Ierrors>({
@@ -45,7 +47,8 @@ const Sign: React.FC = () => {
   };
 
   const { Sign } = useParams();
-  console.log(Sign);
+  const navigate = useNavigate();
+  console.log(navigate);
 
   return (
     <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem]">
@@ -125,14 +128,20 @@ const Sign: React.FC = () => {
           {Sign === ":SignIn" ? (
             <p className="text-[1.5rem] font-light leading-normal text-[#fff] mt-[2.4rem] text-center">
               Don’t have an account?
-              <span className="text-[#fc4747] ml-[0.9rem] cursor-pointer">
+              <span
+                className="text-[#fc4747] ml-[0.9rem] cursor-pointer"
+                onClick={() => navigate("../:SignUp")}
+              >
                 Sign Up
               </span>
             </p>
           ) : (
             <p className="text-[1.5rem] font-light leading-normal text-[#fff] mt-[2.4rem] text-center">
               Already have an account?
-              <span className="text-[#fc4747] ml-[0.9rem] cursor-pointer">
+              <span
+                className="text-[#fc4747] ml-[0.9rem] cursor-pointer"
+                onClick={() => navigate("../:SignIn")}
+              >
                 Sign In
               </span>
             </p>
