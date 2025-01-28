@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Ierrors } from "../types/Types";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const Sign: React.FC = () => {
   const [errors, setErrors] = useState<Ierrors>({
