@@ -2,8 +2,7 @@ import { useContext } from "react";
 import { MainContext } from "../layouts/Layout";
 
 const Search: React.FC = () => {
-  const { lookingFor, data, search } = useContext(MainContext);
-  console.log(data);
+  const { lookingFor, search } = useContext(MainContext);
 
   return (
     <div className="mt-[2.4rem] px-[1.6rem] pb-[1.6rem]">
