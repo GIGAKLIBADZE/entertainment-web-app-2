@@ -52,7 +52,7 @@ const Layout: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:3003/movie`);
+      const response = await fetch(`http://localhost:3001/movie`);
 
       if (!response.ok) {
         throw new Error("Something went wrong.");
