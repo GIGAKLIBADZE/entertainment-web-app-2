@@ -7,6 +7,7 @@ import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Movies from "./pages/Movies";
+import TVSeries from "./pages/TVSeries";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
         element: <Search />,
       },
       { path: "/Profile/Movies", element: <Movies /> },
+      { path: "/Profile/TVSeries", element: <TVSeries /> },
     ],
   },
 ]);
