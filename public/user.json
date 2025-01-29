@@ -1,0 +1,22 @@
+ [
+    { "userEmail": "user1@example.com", "userPassword": "Password123!" },
+    { "userEmail": "user2@example.com", "userPassword": "SecurePass456!" },
+    { "userEmail": "user3@example.com", "userPassword": "MyP@ssw0rd789" },
+    { "userEmail": "user20@example.com", "userPassword": "FinalPass000$" },
+    { "userEmail": "user5@example.com", "userPassword": "HelloWorld321!" },
+    { "userEmail": "user6@example.com", "userPassword": "StrongPass987!" },
+    { "userEmail": "user7@example.com", "userPassword": "RandomPass654#" },
+    { "userEmail": "user8@example.com", "userPassword": "NewPass!123" },
+    { "userEmail": "user9@example.com", "userPassword": "TestingPass456$" },
+    { "userEmail": "user10@example.com", "userPassword": "UltraSecure321@" },
+    { "userEmail": "user11@example.com", "userPassword": "P@ssword999!" },
+    { "userEmail": "user12@example.com", "userPassword": "TopSecret888*" },
+    { "userEmail": "user13@example.com", "userPassword": "LetMeIn777!" },
+    { "userEmail": "user14@example.com", "userPassword": "AdminPass666#" },
+    { "userEmail": "user15@example.com", "userPassword": "SuperSafe555$" },
+    { "userEmail": "user16@example.com", "userPassword": "HiddenKey444!" },
+    { "userEmail": "user17@example.com", "userPassword": "UnlockMe333@" },
+    { "userEmail": "user18@example.com", "userPassword": "SecretPass222#" },
+    { "userEmail": "user19@example.com", "userPassword": "VerySafe111!" },
+    { "userEmail": "user20@example.com", "userPassword": "FinalPass000$" }
+]

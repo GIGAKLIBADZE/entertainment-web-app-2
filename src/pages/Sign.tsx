@@ -3,15 +3,23 @@ import { useState } from "react";
 import { Ierrors } from "../types/Types";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { IUser } from "../types/Types";
 
 const Sign: React.FC = () => {
+  const [userData, setUserData] = useState<IUser[] | null>(null);
+
   const [errors, setErrors] = useState<Ierrors>({
     emailError: false,
     passwordError: false,
     repeatPasswordError: false,
   });
 
-  const checkValidation = (e: React.FormEvent<HTMLFormElement>) => {
+  const [user, setUser] = useState<IUser>({
+    userEmail: "",
+    userPassword: "",
+  });
+
+  const checkValidation = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setErrors({
@@ -29,6 +37,11 @@ const Sign: React.FC = () => {
         : null;
     }
 
+    setUser({
+      userEmail: email,
+      userPassword: password,
+    });
+
     {
       Sign === ":SignUp"
         ? setErrors((prevErrors) => ({
@@ -43,11 +56,25 @@ const Sign: React.FC = () => {
             passwordError: !password,
           }));
     }
+
+    console.log(email, password);
+
+    fetch("/user.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const registered = data.find(
+          (d: IUser) => d.userEmail === email && d.userPassword === password
+        );
+        console.log(registered);
+        if (registered) {
+          navigate("/Profile/Home");
+        }
+      })
+      .catch((error) => console.error(error));
   };
 
   const { Sign } = useParams();
   const navigate = useNavigate();
-  console.log(navigate);
 
   return (
     <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem]">

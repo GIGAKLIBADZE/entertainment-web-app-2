@@ -23,3 +23,8 @@ export interface Idata {
   isBookmarked: boolean;
   isTrending: boolean;
 }
+
+export interface IUser {
+  userEmail: string;
+  userPassword: string;
+}

@@ -11,9 +11,12 @@ import { useEffect, useState } from "react";
 import { Idata } from "../types/Types";
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
+// import test from "/data.json";
+// console.log(test);
 
 export const MainContext = createContext<{
   fetchData: () => Promise<void>;
+  // fetchData: () => void;
   data: Idata[] | null | undefined;
   setData: React.Dispatch<React.SetStateAction<Idata[] | null | undefined>>;
   search: boolean;
@@ -21,6 +24,7 @@ export const MainContext = createContext<{
   lookingFor: Idata[] | null | undefined;
 }>({
   fetchData: async () => {},
+  // fetchData: () => {},
   data: null,
   setData: () => {},
   search: false,
@@ -50,19 +54,26 @@ const Layout: React.FC = () => {
     setLookingFor(filteredData);
   };
 
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:3001/movie`);
+
+  //     if (!response.ok) {
+  //       throw new Error("Something went wrong.");
+  //     }
+
+  //     const responseToJson = await response.json();
+  //     setData(responseToJson);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   const fetchData = async () => {
-    try {
-      const response = await fetch(`http://localhost:3001/movie`);
-
-      if (!response.ok) {
-        throw new Error("Something went wrong.");
-      }
-
-      const responseToJson = await response.json();
-      setData(responseToJson);
-    } catch (error) {
-      console.error(error);
-    }
+    return fetch("/data.json")
+      .then((response) => response.json())
+      .then((responseToJson) => setData(responseToJson))
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {

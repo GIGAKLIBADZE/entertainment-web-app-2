@@ -49,8 +49,8 @@ const Home: React.FC = () => {
             {data
               ?.filter((item) => item.isTrending === true)
               .map((item) => (
-                <SwiperSlide style={{ width: "24.5rem" }}>
-                  <div key={item.title}>
+                <SwiperSlide style={{ width: "24.5rem" }} key={item.title}>
+                  <div>
                     <img
                       src={item.thumbnail.regular.small}
                       alt="Thumbnail"
