@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Movies from "./pages/Movies";
 import TVSeries from "./pages/TVSeries";
+import Bookmarked from "./pages/Bookmarked";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       },
       { path: "/Profile/Movies", element: <Movies /> },
       { path: "/Profile/TVSeries", element: <TVSeries /> },
+      { path: "/Profile/Bookmarked", element: <Bookmarked /> },
     ],
   },
 ]);
