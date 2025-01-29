@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { MainContext } from "../layouts/Layout";
+import EmptyBookMark from "/images/icon-bookmark-empty.svg";
+import FullBookMark from "/images/icon-bookmark-full.svg";
 
 const Movies: React.FC = () => {
   const { data } = useContext(MainContext);
@@ -13,12 +15,15 @@ const Movies: React.FC = () => {
         {data
           ?.filter((item) => item.category === "Movie")
           .map((item) => (
-            <div key={item.title}>
+            <div key={item.title} className="relative">
               <img
                 src={item.thumbnail.regular.small}
                 alt="Thumbnail"
                 className="w-[16.4rem] h-[11rem] rounded-[8px] object-contain"
               />
+              <div className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[12.4rem]">
+                <img src={EmptyBookMark} alt="Bookmark" />
+              </div>
               <section className="flex items-center gap-[0.7rem] mt-[0.8rem]">
                 <small className="description">
                   {item.year}{" "}
