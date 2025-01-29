@@ -7,6 +7,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 // import "swiper/css/navigation";
 // import "swiper/css/pagination";
 // import "swiper/css/scrollbar";
+import "swiper/swiper-bundle.css";
 
 const Home: React.FC = () => {
   const { data } = useContext(MainContext);
@@ -36,34 +37,34 @@ const Home: React.FC = () => {
           Trending
         </h2>
         <p></p>
-        <section>
+        <section className="mt-[1.6rem]">
           <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
+            // modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={10}
+            slidesPerView={"auto"}
+            // navigation
+            // pagination={{ clickable: true }}
+            // scrollbar={{ draggable: true }}
+            // onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log("slide change")}
           >
             {/* <SwiperSlide> */}
             {data
               ?.filter((item) => item.isTrending === true)
               .map((item) => (
-                <SwiperSlide>
+                <SwiperSlide style={{ width: "24.5rem" }}>
                   <div key={item.title}>
                     <img
                       src={item.thumbnail.regular.small}
                       alt="Thumbnail"
-                      className="w-[16.4rem] h-[11rem] rounded-[8px] object-contain"
+                      className="w-[24rem] h-[14rem] rounded-[8px] relative"
                     />
-                    <section className="flex items-center gap-[0.7rem] mt-[0.8rem]">
-                      <small className="description">
+                    <section className="flex items-center gap-[0.8rem] ml-[1.6rem] absolute top-[8.6rem]">
+                      <small className="description !text-[1.2rem]">
                         {item.year}{" "}
-                        <span className="opacity-[0.5] ml-[0.6rem]">•</span>
+                        <span className="opacity-[0.5] ml-[0.8rem]">•</span>
                       </small>
-                      <div></div>
+
                       <div className="flex items-center gap-[0.4rem]">
                         <img
                           src={
@@ -72,20 +73,25 @@ const Home: React.FC = () => {
                               : "/images/icon-nav-tv-series.svg"
                           }
                           alt="Category"
-                          className={`w-[1rem]
-                        ${item.category === "Movie" ? "h-[1rem]" : "h-[0.7rem]"}
+                          className={`w-[1.2rem]
+                        ${
+                          item.category === "Movie"
+                            ? "h-[1.2rem]"
+                            : "h-[0.7rem]"
+                        }
                       `}
                         />
-                        <small className="description">
+                        <small className="description !text-[1.2rem]">
                           {item.category}{" "}
-                          <span className="opacity-[0.5] ml-[0.6rem]">•</span>
+                          <span className="opacity-[0.5] ml-[0.8rem]">•</span>
                         </small>
                       </div>
 
-                      <div></div>
-                      <small className="description">{item.rating}</small>
+                      <small className="description !text-[1.2rem]">
+                        {item.rating}
+                      </small>
                     </section>
-                    <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem]">
+                    <p className="text-[1.5rem] font-medium leading-normal text-[#fff] mt-[0.4rem] ml-[1.6rem] absolute top-[10.5rem]">
                       {item.title}
                     </p>
                   </div>
