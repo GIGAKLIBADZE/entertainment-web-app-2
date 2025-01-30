@@ -4,7 +4,7 @@ import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 
 const TVSeries: React.FC = () => {
-  const { data } = useContext(MainContext);
+  const { data, mark, toggleBookmark } = useContext(MainContext);
 
   return (
     <div className="mt-[2.4rem] px-[1.6rem] pb-[6.1rem]">
@@ -21,8 +21,14 @@ const TVSeries: React.FC = () => {
                 alt="Thumbnail"
                 className="w-[16.4rem] h-[11rem] rounded-[8px] object-contain"
               />
-              <div className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[12.4rem]">
-                <img src={EmptyBookMark} alt="Bookmark" />
+              <div
+                className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[12.4rem]"
+                onClick={() => toggleBookmark(item.title)}
+              >
+                <img
+                  src={mark[item.title] ? FullBookMark : EmptyBookMark}
+                  alt="Bookmark"
+                />
               </div>
               <section className="flex items-center gap-[0.7rem] mt-[0.8rem]">
                 <small className="description">
