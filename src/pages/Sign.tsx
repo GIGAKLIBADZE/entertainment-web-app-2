@@ -30,6 +30,11 @@ const Sign: React.FC = () => {
         : null;
     }
 
+    let user = {
+      email: email,
+      password: password,
+    };
+
     {
       Sign === "SignUp"
         ? setErrors((prevErrors) => ({
@@ -45,6 +50,11 @@ const Sign: React.FC = () => {
           }));
     }
 
+    if (Sign === "SignUp") {
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+    }
+
     Sign === "SignIn"
       ? fetch("/user.json")
           .then((response) => response.json())
@@ -52,12 +62,33 @@ const Sign: React.FC = () => {
             const registered = data.find(
               (d: IUser) => d.userEmail === email && d.userPassword === password
             );
-            if (registered) {
+            if (
+              registered ||
+              (localStorage.getItem("email") === email &&
+                localStorage.getItem("password") === password)
+            ) {
               navigate("/Profile/Home");
             }
           })
           .catch((error) => console.error(error))
       : null;
+
+    if (
+      Sign === "SignUp" &&
+      user.email !== "" &&
+      user.password !== "" &&
+      password === repeatPassword
+    ) {
+      navigate("/SignIn");
+    }
+
+    // if (
+    //   Sign === "SignIn" &&
+    //   localStorage.getItem("email`") === email
+    //   // localStorage.getItem(`${user.password}`) === password
+    // ) {
+    //   navigate("/Profile/Home");
+    // }
   };
 
   const { Sign } = useParams();
