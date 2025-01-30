@@ -5,9 +5,10 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 import "swiper/swiper-bundle.css";
+import { useState } from "react";
 
 const Home: React.FC = () => {
-  const { data } = useContext(MainContext);
+  const { data, mark, toggleBookmark } = useContext(MainContext);
 
   return (
     <div>
@@ -56,8 +57,14 @@ const Home: React.FC = () => {
                       alt="Thumbnail"
                       className="w-[24rem] h-[14rem] rounded-[8px] relative"
                     />
-                    <div className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[20rem]">
-                      <img src={EmptyBookMark} alt="Bookmark" />
+                    <div
+                      className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[20rem]"
+                      onClick={() => toggleBookmark(item.title)}
+                    >
+                      <img
+                        src={mark[item.title] ? FullBookMark : EmptyBookMark}
+                        alt="Bookmark"
+                      />
                     </div>
                     <section className="flex items-center gap-[0.8rem] ml-[1.6rem] absolute top-[8.6rem]">
                       <small className="description !text-[1.2rem]">
@@ -116,8 +123,14 @@ const Home: React.FC = () => {
                   alt="Thumbnail"
                   className="w-[16.4rem] h-[11rem] rounded-[8px] object-contain "
                 />
-                <div className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[12.4rem]">
-                  <img src={EmptyBookMark} alt="Bookmark" />
+                <div
+                  className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[12.4rem]"
+                  onClick={() => toggleBookmark(item.title)}
+                >
+                  <img
+                    src={mark[item.title] ? FullBookMark : EmptyBookMark}
+                    alt="Bookmark"
+                  />
                 </div>
                 <section className="flex items-center gap-[0.7rem] mt-[0.8rem]">
                   <small className="description">

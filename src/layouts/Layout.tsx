@@ -11,25 +11,27 @@ import { useEffect, useState } from "react";
 import { Idata } from "../types/Types";
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
-// import test from "/data.json";
-// console.log(test);
 
 export const MainContext = createContext<{
   fetchData: () => Promise<void>;
-  // fetchData: () => void;
   data: Idata[] | null | undefined;
   setData: React.Dispatch<React.SetStateAction<Idata[] | null | undefined>>;
   search: boolean;
   setSearch: React.Dispatch<React.SetStateAction<boolean>>;
   lookingFor: Idata[] | null | undefined;
+  mark: { [key: string]: boolean };
+  // setMark: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleBookmark: (x: string) => void;
 }>({
   fetchData: async () => {},
-  // fetchData: () => {},
   data: null,
   setData: () => {},
   search: false,
   setSearch: () => {},
   lookingFor: null,
+  mark: {},
+  // setMark: () => {},
+  toggleBookmark: () => {},
 });
 
 const Layout: React.FC = () => {
@@ -38,6 +40,15 @@ const Layout: React.FC = () => {
   const [lookingFor, setLookingFor] = useState<Idata[] | null | undefined>(
     null
   );
+
+  const [mark, setMark] = useState<{ [key: string]: boolean }>({});
+
+  const toggleBookmark = (title: string) => {
+    setMark((prev) => ({
+      ...prev,
+      [title]: !prev[title], // Toggle bookmark status for the specific item
+    }));
+  };
 
   const navigate = useNavigate();
   console.log(navigate);
@@ -53,21 +64,6 @@ const Layout: React.FC = () => {
 
     setLookingFor(filteredData);
   };
-
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch(`http://localhost:3001/movie`);
-
-  //     if (!response.ok) {
-  //       throw new Error("Something went wrong.");
-  //     }
-
-  //     const responseToJson = await response.json();
-  //     setData(responseToJson);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
   const fetchData = async () => {
     return fetch("/data.json")
@@ -146,6 +142,9 @@ const Layout: React.FC = () => {
           search,
           setSearch,
           lookingFor,
+          mark,
+          // setMark,
+          toggleBookmark,
         }}
       >
         <Outlet />

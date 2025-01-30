@@ -65,7 +65,6 @@ const Sign: React.FC = () => {
         const registered = data.find(
           (d: IUser) => d.userEmail === email && d.userPassword === password
         );
-        console.log(registered);
         if (registered) {
           navigate("/Profile/Home");
         }
