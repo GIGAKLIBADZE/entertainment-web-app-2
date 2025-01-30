@@ -6,17 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { IUser } from "../types/Types";
 
 const Sign: React.FC = () => {
-  const [userData, setUserData] = useState<IUser[] | null>(null);
-
   const [errors, setErrors] = useState<Ierrors>({
     emailError: false,
     passwordError: false,
     repeatPasswordError: false,
-  });
-
-  const [user, setUser] = useState<IUser>({
-    userEmail: "",
-    userPassword: "",
   });
 
   const checkValidation = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,13 +30,8 @@ const Sign: React.FC = () => {
         : null;
     }
 
-    setUser({
-      userEmail: email,
-      userPassword: password,
-    });
-
     {
-      Sign === ":SignUp"
+      Sign === "SignUp"
         ? setErrors((prevErrors) => ({
             ...prevErrors,
             emailError: !email,
@@ -57,19 +45,19 @@ const Sign: React.FC = () => {
           }));
     }
 
-    console.log(email, password);
-
-    fetch("/user.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const registered = data.find(
-          (d: IUser) => d.userEmail === email && d.userPassword === password
-        );
-        if (registered) {
-          navigate("/Profile/Home");
-        }
-      })
-      .catch((error) => console.error(error));
+    Sign === "SignIn"
+      ? fetch("/user.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const registered = data.find(
+              (d: IUser) => d.userEmail === email && d.userPassword === password
+            );
+            if (registered) {
+              navigate("/Profile/Home");
+            }
+          })
+          .catch((error) => console.error(error))
+      : null;
   };
 
   const { Sign } = useParams();
@@ -84,19 +72,15 @@ const Sign: React.FC = () => {
       />
       <div
         className={`w-[32.7rem] pt-[2.4rem] px-[2.4rem] ${
-          Sign === ":SignIn"
+          Sign === "SignIn"
             ? "pb-[3.2rem]"
-            : Sign === ":SignUp"
+            : Sign === "SignUp"
             ? "pb-[2.6rem]"
             : null
         } rounded-[10px] bg-[#161d2f] mt-[5.8rem]`}
       >
         <h3 className="text-[3.2rem] font-light leading-normal tracking-[-0.5px] text-[#fff] ">
-          {Sign === ":SignIn"
-            ? "Log In"
-            : Sign === ":SignUp"
-            ? "Sign Up"
-            : null}
+          {Sign === "SignIn" ? "Log In" : Sign === "SignUp" ? "Sign Up" : null}
         </h3>
         <form onSubmit={checkValidation} className="w-full">
           <div className="relative">
@@ -126,7 +110,7 @@ const Sign: React.FC = () => {
             ) : null}
           </div>
           {/* // test */}
-          {Sign === ":SignUp" ? (
+          {Sign === "SignUp" ? (
             <div className="relative">
               <input
                 name="repeatPassword"
@@ -141,7 +125,7 @@ const Sign: React.FC = () => {
               ) : null}
             </div>
           ) : null}
-          {Sign === ":SignIn" ? (
+          {Sign === "SignIn" ? (
             <button className="w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal text-[#fff] mt-[5.4rem] cursor-pointer hover:bg-[#fff] hover:text-[#161d2f]">
               Login to your account
             </button>
@@ -150,12 +134,19 @@ const Sign: React.FC = () => {
               Create an account
             </button>
           )}
-          {Sign === ":SignIn" ? (
+          {Sign === "SignIn" ? (
             <p className="text-[1.5rem] font-light leading-normal text-[#fff] mt-[2.4rem] text-center">
               Don’t have an account?
               <span
                 className="text-[#fc4747] ml-[0.9rem] cursor-pointer"
-                onClick={() => navigate("../:SignUp")}
+                onClick={() => {
+                  navigate("../SignUp");
+                  setErrors({
+                    emailError: false,
+                    passwordError: false,
+                    repeatPasswordError: false,
+                  });
+                }}
               >
                 Sign Up
               </span>
@@ -165,7 +156,14 @@ const Sign: React.FC = () => {
               Already have an account?
               <span
                 className="text-[#fc4747] ml-[0.9rem] cursor-pointer"
-                onClick={() => navigate("../:SignIn")}
+                onClick={() => {
+                  navigate("../SignIn");
+                  setErrors({
+                    emailError: false,
+                    passwordError: false,
+                    repeatPasswordError: false,
+                  });
+                }}
               >
                 Sign In
               </span>

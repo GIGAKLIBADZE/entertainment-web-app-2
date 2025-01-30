@@ -41,7 +41,9 @@ const Layout: React.FC = () => {
     null
   );
 
-  const [mark, setMark] = useState<{ [key: string]: boolean }>({});
+  const [mark, setMark] = useState<{ [key: string]: boolean }>({
+    [""]: false,
+  });
 
   const toggleBookmark = (title: string) => {
     setMark((prev) => ({

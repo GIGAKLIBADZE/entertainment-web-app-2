@@ -59,7 +59,12 @@ const Home: React.FC = () => {
                     />
                     <div
                       className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[20rem]"
-                      onClick={() => toggleBookmark(item.title)}
+                      onClick={() => {
+                        toggleBookmark(item.title);
+                        mark[item.title]
+                          ? (item.isBookmarked = true)
+                          : (item.isBookmarked = false);
+                      }}
                     >
                       <img
                         src={mark[item.title] ? FullBookMark : EmptyBookMark}
