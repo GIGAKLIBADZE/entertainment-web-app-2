@@ -46,17 +46,18 @@ const Layout: React.FC = () => {
 
   const location = useLocation();
 
-  const filterData = () => {
-    if (location.pathname === "/Profile/Home") {
-      setMenu(1);
-    } else if (location.pathname === "/Profile/Movies") {
-      setMenu(2);
-    } else if (location.pathname === "/Profile/TVSeries") {
-      setMenu(3);
-    } else if (location.pathname === "/Profile/Bookmarked") {
-      setMenu(4);
-    }
-  };
+  // const filterData = () => {
+  //   if (location.pathname === "/Profile/Home") {
+  //     setMenu(1);
+  //   } else if (location.pathname === "/Profile/Movies") {
+  //     setMenu(2);
+  //   } else if (location.pathname === "/Profile/TVSeries") {
+  //     setMenu(3);
+  //   } else if (location.pathname === "/Profile/Bookmarked") {
+  //     setMenu(4);
+  //   }
+  // };
+  // filterData();
 
   console.log(location.pathname);
 
@@ -109,7 +110,9 @@ const Layout: React.FC = () => {
           <img
             src={All}
             alt="All"
-            className="w-[1.6rem] h-[1.6rem] object-contain"
+            className={`w-[1.6rem] h-[1.6rem] object-contain ${
+              menu === 1 ? "invert brightness-0" : ""
+            }`}
             onClick={() => {
               if (menu !== 1) {
                 setMenu(1);
@@ -120,7 +123,9 @@ const Layout: React.FC = () => {
           <img
             src={Movies}
             alt="Movies"
-            className="w-[1.6rem] h-[1.6rem] object-contain"
+            className={`w-[1.6rem] h-[1.6rem] object-contain ${
+              menu === 2 ? "invert brightness-0" : ""
+            }`}
             onClick={() => {
               if (menu !== 2) {
                 setMenu(2);
@@ -131,7 +136,9 @@ const Layout: React.FC = () => {
           <img
             src={TVSeries}
             alt="TV Series"
-            className="w-[1.6rem] h-[1.6rem] object-contain"
+            className={`w-[1.6rem] h-[1.6rem] object-contain ${
+              menu === 3 ? "invert brightness-0" : ""
+            }`}
             onClick={() => {
               if (menu !== 3) {
                 setMenu(3);
@@ -142,7 +149,9 @@ const Layout: React.FC = () => {
           <img
             src={Bookmarked}
             alt="Bookmarked"
-            className="w-[1.4rem] h-[1.6rem] object-contain"
+            className={`w-[1.6rem] h-[1.6rem] object-contain ${
+              menu === 4 ? "invert brightness-0" : ""
+            }`}
             onClick={() => {
               if (menu !== 4) {
                 setMenu(4);

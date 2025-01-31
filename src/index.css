@@ -36,6 +36,10 @@ body {
     height: 14rem;
 }
 
+.menu {
+    fill: invert(100%) sepia(100%) saturate(12%) hue-rotate(294deg) brightness(104%) contrast(100%)
+}
+
 /* @layer components {
     input:-webkit-autofill {
         @apply bg-transparent text-current !important
