@@ -8,7 +8,7 @@ import "swiper/swiper-bundle.css";
 import { useState } from "react";
 
 const Home: React.FC = () => {
-  const { data, toggleBookmark } = useContext(MainContext);
+  const { data, menu, setMenu, toggleBookmark } = useContext(MainContext);
 
   return (
     <div>

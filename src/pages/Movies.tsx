@@ -4,7 +4,7 @@ import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 
 const Movies: React.FC = () => {
-  const { data, toggleBookmark } = useContext(MainContext);
+  const { data, menu, setMenu, toggleBookmark } = useContext(MainContext);
 
   return (
     <div className="mt-[2.4rem] px-[1.6rem] pb-[6.1rem]">

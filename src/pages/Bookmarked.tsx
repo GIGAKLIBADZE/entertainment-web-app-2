@@ -4,7 +4,7 @@ import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 
 const Bookmarked: React.FC = () => {
-  const { data, toggleBookmark } = useContext(MainContext);
+  const { data, menu, setMenu, toggleBookmark } = useContext(MainContext);
 
   return (
     <div>

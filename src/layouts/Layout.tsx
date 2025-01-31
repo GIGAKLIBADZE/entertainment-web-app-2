@@ -21,6 +21,8 @@ export const MainContext = createContext<{
   setSearch: React.Dispatch<React.SetStateAction<boolean>>;
   lookingFor: Idata[] | null | undefined;
   toggleBookmark: (x: string) => void;
+  menu: number;
+  setMenu: React.Dispatch<React.SetStateAction<number>>;
 }>({
   fetchData: async () => {},
   data: null,
@@ -29,6 +31,8 @@ export const MainContext = createContext<{
   setSearch: () => {},
   lookingFor: null,
   toggleBookmark: () => {},
+  menu: 1,
+  setMenu: () => {},
 });
 
 const Layout: React.FC = () => {
@@ -106,21 +110,45 @@ const Layout: React.FC = () => {
             src={All}
             alt="All"
             className="w-[1.6rem] h-[1.6rem] object-contain"
+            onClick={() => {
+              if (menu !== 1) {
+                setMenu(1);
+                navigate("/Profile/Home");
+              }
+            }}
           />
           <img
             src={Movies}
             alt="Movies"
             className="w-[1.6rem] h-[1.6rem] object-contain"
+            onClick={() => {
+              if (menu !== 2) {
+                setMenu(2);
+                navigate("/Profile/Movies");
+              }
+            }}
           />
           <img
             src={TVSeries}
             alt="TV Series"
             className="w-[1.6rem] h-[1.6rem] object-contain"
+            onClick={() => {
+              if (menu !== 3) {
+                setMenu(3);
+                navigate("/Profile/TVSeries");
+              }
+            }}
           />
           <img
             src={Bookmarked}
             alt="Bookmarked"
             className="w-[1.4rem] h-[1.6rem] object-contain"
+            onClick={() => {
+              if (menu !== 4) {
+                setMenu(4);
+                navigate("/Profile/Bookmarked");
+              }
+            }}
           />
         </section>
         <img
@@ -160,6 +188,8 @@ const Layout: React.FC = () => {
           setSearch,
           lookingFor,
           toggleBookmark,
+          menu,
+          setMenu,
         }}
       >
         <Outlet />
