@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { MainContext } from "../layouts/Layout";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
+import { useLayoutEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Movies: React.FC = () => {
-  const { data, menu, setMenu, toggleBookmark } = useContext(MainContext);
+  const { data, menu, setMenu, toggleBookmark, filterData } =
+    useContext(MainContext);
 
   return (
     <div className="mt-[2.4rem] px-[1.6rem] pb-[6.1rem]">

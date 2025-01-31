@@ -23,6 +23,9 @@ export const MainContext = createContext<{
   toggleBookmark: (x: string) => void;
   menu: number;
   setMenu: React.Dispatch<React.SetStateAction<number>>;
+  filterData: () => void;
+  toggleSearchBookmark: (x: string) => void;
+  findResult: (e: React.FormEvent<HTMLFormElement>) => void;
 }>({
   fetchData: async () => {},
   data: null,
@@ -33,9 +36,13 @@ export const MainContext = createContext<{
   toggleBookmark: () => {},
   menu: 1,
   setMenu: () => {},
+  filterData: () => {},
+  toggleSearchBookmark: () => {},
+  findResult: () => undefined,
 });
 
 const Layout: React.FC = () => {
+  let test: Idata[] | null | undefined = null;
   const [data, setData] = useState<Idata[] | null | undefined>(null);
   const [search, setSearch] = useState<boolean>(false);
   const [lookingFor, setLookingFor] = useState<Idata[] | null | undefined>(
@@ -46,20 +53,29 @@ const Layout: React.FC = () => {
 
   const location = useLocation();
 
-  // const filterData = () => {
-  //   if (location.pathname === "/Profile/Home") {
-  //     setMenu(1);
-  //   } else if (location.pathname === "/Profile/Movies") {
-  //     setMenu(2);
-  //   } else if (location.pathname === "/Profile/TVSeries") {
-  //     setMenu(3);
-  //   } else if (location.pathname === "/Profile/Bookmarked") {
-  //     setMenu(4);
-  //   }
-  // };
+  // console.log(location.pathname);
+  const filterData = () => {
+    if (location.pathname === "/Profile/Home") {
+      setMenu(1);
+    } else if (location.pathname === "/Profile/Movies") {
+      setMenu(2);
+    }
+  };
   // filterData();
 
-  console.log(location.pathname);
+  location.pathname === "/Profile/Movies" ? console.log(location.pathname) : "";
+
+  const toggleSearchBookmark = (title: string) => {
+    setLookingFor((prev) =>
+      prev?.map((item) => {
+        return {
+          ...item,
+          isBookmarked:
+            item.title === title ? !item.isBookmarked : item.isBookmarked,
+        };
+      })
+    );
+  };
 
   const toggleBookmark = (title: string) => {
     setData((prev) =>
@@ -84,7 +100,11 @@ const Layout: React.FC = () => {
       item.title.toLowerCase().includes(search)
     );
 
+    // return test;
+    // setData(filterData);
+    //
     setLookingFor(filteredData);
+    // setData(lookingFor);
   };
 
   const fetchData = async () => {
@@ -111,7 +131,7 @@ const Layout: React.FC = () => {
             src={All}
             alt="All"
             className={`w-[1.6rem] h-[1.6rem] object-contain ${
-              menu === 1 ? "invert brightness-0" : ""
+              location.pathname === "/Profile/Home" ? "invert brightness-0" : ""
             }`}
             onClick={() => {
               if (menu !== 1) {
@@ -124,7 +144,9 @@ const Layout: React.FC = () => {
             src={Movies}
             alt="Movies"
             className={`w-[1.6rem] h-[1.6rem] object-contain ${
-              menu === 2 ? "invert brightness-0" : ""
+              location.pathname === "/Profile/Movies"
+                ? "invert brightness-0"
+                : ""
             }`}
             onClick={() => {
               if (menu !== 2) {
@@ -137,7 +159,9 @@ const Layout: React.FC = () => {
             src={TVSeries}
             alt="TV Series"
             className={`w-[1.6rem] h-[1.6rem] object-contain ${
-              menu === 3 ? "invert brightness-0" : ""
+              location.pathname === "/Profile/TVSeries"
+                ? "invert brightness-0"
+                : ""
             }`}
             onClick={() => {
               if (menu !== 3) {
@@ -177,7 +201,7 @@ const Layout: React.FC = () => {
             className="w-[1.8rem] h-[1.8rem]"
             onClick={() => {
               setSearch(true);
-              navigate("/Profile/Search");
+              // navigate("/Profile/Search");
             }}
           />
         </button>
@@ -199,6 +223,9 @@ const Layout: React.FC = () => {
           toggleBookmark,
           menu,
           setMenu,
+          filterData,
+          toggleSearchBookmark,
+          findResult,
         }}
       >
         <Outlet />

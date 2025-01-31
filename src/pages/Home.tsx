@@ -6,9 +6,11 @@ import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 import "swiper/swiper-bundle.css";
 import { useState } from "react";
+// import { useLocation } from "react-router-dom";
 
 const Home: React.FC = () => {
-  const { data, menu, setMenu, toggleBookmark } = useContext(MainContext);
+  const { data, menu, setMenu, toggleBookmark, filterData } =
+    useContext(MainContext);
 
   return (
     <div>

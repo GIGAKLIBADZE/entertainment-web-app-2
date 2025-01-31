@@ -2,9 +2,15 @@ import { useContext } from "react";
 import { MainContext } from "../layouts/Layout";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
+import { useLocation } from "react-router-dom";
 
 const Bookmarked: React.FC = () => {
   const { data, menu, setMenu, toggleBookmark } = useContext(MainContext);
+
+  // const location = useLocation();
+  // if (location.pathname === "/Profile/Bookmarked") {
+  //   setMenu(4);
+  // }
 
   return (
     <div>
