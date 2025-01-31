@@ -4,7 +4,7 @@ import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 
 const Bookmarked: React.FC = () => {
-  const { data, mark, toggleBookmark } = useContext(MainContext);
+  const { data, toggleBookmark } = useContext(MainContext);
 
   return (
     <div>
@@ -29,7 +29,7 @@ const Bookmarked: React.FC = () => {
                   onClick={() => toggleBookmark(item.title)}
                 >
                   <img
-                    src={mark[item.title] ? FullBookMark : EmptyBookMark}
+                    src={item.isBookmarked ? FullBookMark : EmptyBookMark}
                     alt="Bookmark"
                   />
                 </div>

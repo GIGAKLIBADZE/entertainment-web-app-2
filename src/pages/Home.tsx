@@ -8,7 +8,7 @@ import "swiper/swiper-bundle.css";
 import { useState } from "react";
 
 const Home: React.FC = () => {
-  const { data, mark, toggleBookmark } = useContext(MainContext);
+  const { data, toggleBookmark } = useContext(MainContext);
 
   return (
     <div>
@@ -61,13 +61,10 @@ const Home: React.FC = () => {
                       className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[20rem]"
                       onClick={() => {
                         toggleBookmark(item.title);
-                        mark[item.title]
-                          ? (item.isBookmarked = true)
-                          : (item.isBookmarked = false);
                       }}
                     >
                       <img
-                        src={mark[item.title] ? FullBookMark : EmptyBookMark}
+                        src={item.isBookmarked ? FullBookMark : EmptyBookMark}
                         alt="Bookmark"
                       />
                     </div>
@@ -133,7 +130,7 @@ const Home: React.FC = () => {
                   onClick={() => toggleBookmark(item.title)}
                 >
                   <img
-                    src={mark[item.title] ? FullBookMark : EmptyBookMark}
+                    src={item.isBookmarked ? FullBookMark : EmptyBookMark}
                     alt="Bookmark"
                   />
                 </div>

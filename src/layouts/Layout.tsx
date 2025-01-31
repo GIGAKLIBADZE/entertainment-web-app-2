@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { Idata } from "../types/Types";
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const MainContext = createContext<{
   fetchData: () => Promise<void>;
@@ -19,8 +20,6 @@ export const MainContext = createContext<{
   search: boolean;
   setSearch: React.Dispatch<React.SetStateAction<boolean>>;
   lookingFor: Idata[] | null | undefined;
-  mark: { [key: string]: boolean };
-  // setMark: React.Dispatch<React.SetStateAction<boolean>>;
   toggleBookmark: (x: string) => void;
 }>({
   fetchData: async () => {},
@@ -29,8 +28,6 @@ export const MainContext = createContext<{
   search: false,
   setSearch: () => {},
   lookingFor: null,
-  mark: {},
-  // setMark: () => {},
   toggleBookmark: () => {},
 });
 
@@ -41,19 +38,37 @@ const Layout: React.FC = () => {
     null
   );
 
-  const [mark, setMark] = useState<{ [key: string]: boolean }>({
-    [""]: false,
-  });
+  const [menu, setMenu] = useState<number>(1);
+
+  const location = useLocation();
+
+  const filterData = () => {
+    if (location.pathname === "/Profile/Home") {
+      setMenu(1);
+    } else if (location.pathname === "/Profile/Movies") {
+      setMenu(2);
+    } else if (location.pathname === "/Profile/TVSeries") {
+      setMenu(3);
+    } else if (location.pathname === "/Profile/Bookmarked") {
+      setMenu(4);
+    }
+  };
+
+  console.log(location.pathname);
 
   const toggleBookmark = (title: string) => {
-    setMark((prev) => ({
-      ...prev,
-      [title]: !prev[title], // Toggle bookmark status for the specific item
-    }));
+    setData((prev) =>
+      prev?.map((item) => {
+        return {
+          ...item,
+          isBookmarked:
+            item.title === title ? !item.isBookmarked : item.isBookmarked,
+        };
+      })
+    );
   };
 
   const navigate = useNavigate();
-  console.log(navigate);
 
   const findResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -144,8 +159,6 @@ const Layout: React.FC = () => {
           search,
           setSearch,
           lookingFor,
-          mark,
-          // setMark,
           toggleBookmark,
         }}
       >
