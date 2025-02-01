@@ -52,6 +52,7 @@ const Layout: React.FC = () => {
   const [menu, setMenu] = useState<number>(1);
 
   const location = useLocation();
+  console.log(location.pathname);
 
   // console.log(location.pathname);
   const filterData = () => {
@@ -138,6 +139,7 @@ const Layout: React.FC = () => {
                 setMenu(1);
                 navigate("/Profile/Home");
               }
+              setSearch(false);
             }}
           />
           <img
@@ -153,6 +155,7 @@ const Layout: React.FC = () => {
                 setMenu(2);
                 navigate("/Profile/Movies");
               }
+              setSearch(false);
             }}
           />
           <img
@@ -168,6 +171,7 @@ const Layout: React.FC = () => {
                 setMenu(3);
                 navigate("/Profile/TVSeries");
               }
+              setSearch(false);
             }}
           />
           <img
@@ -181,6 +185,7 @@ const Layout: React.FC = () => {
                 setMenu(4);
                 navigate("/Profile/Bookmarked");
               }
+              setSearch(false);
             }}
           />
         </section>

@@ -5,10 +5,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Sign from "./pages/Sign";
 import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
-import Search from "./pages/Search";
+import Search from "./components/Search";
 import Movies from "./pages/Movies";
 import TVSeries from "./pages/TVSeries";
-import Bookmarked from "./pages/BookMarked";
+import Bookmarked from "./pages/Bookmarked";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +23,10 @@ const router = createBrowserRouter([
         path: "/Profile/Home",
         element: <Home />,
       },
-      {
-        path: "/Profile/Search",
-        element: <Search />,
-      },
+      // {
+      //   path: "/Profile/Search",
+      //   element: <Search />,
+      // },
       { path: "/Profile/Movies", element: <Movies /> },
       { path: "/Profile/TVSeries", element: <TVSeries /> },
       { path: "/Profile/Bookmarked", element: <Bookmarked /> },

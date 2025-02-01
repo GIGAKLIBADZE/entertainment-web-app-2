@@ -1,6 +1,6 @@
 import Movie from "/images/movie.png";
 import { useState } from "react";
-import { Ierrors } from "../types/Types";
+import { Idata, Ierrors } from "../types/Types";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../types/Types";
@@ -11,6 +11,8 @@ const Sign: React.FC = () => {
     passwordError: false,
     repeatPasswordError: false,
   });
+
+  // const [user, setUser] = useState<Idata | null>(null);
 
   const checkValidation = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,6 +55,8 @@ const Sign: React.FC = () => {
     if (Sign === "SignUp") {
       localStorage.setItem("email", email);
       localStorage.setItem("password", password);
+      // user.email = "";
+      // user.password = "";
     }
 
     Sign === "SignIn"
