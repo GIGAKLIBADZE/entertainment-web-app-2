@@ -10,11 +10,16 @@ import Movies from "./pages/Movies";
 import TVSeries from "./pages/TVSeries";
 import Bookmarked from "./pages/Bookmarked";
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter([
   {
     path: "/SignIn",
     element: <SignIn />,
+  },
+  {
+    path: "/SignUp",
+    element: <SignUp />,
   },
   {
     path: "/Profile",

@@ -3,6 +3,12 @@ export interface IerrorsSignIn {
   passwordError: boolean;
 }
 
+export interface IerrorsSignUp {
+  emailError: boolean;
+  passwordError: boolean;
+  repeatPasswordError: boolean;
+}
+
 export interface Idata {
   title: string;
   thumbnail: {
