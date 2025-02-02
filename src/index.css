@@ -40,22 +40,12 @@ body {
     fill: invert(100%) sepia(100%) saturate(12%) hue-rotate(294deg) brightness(104%) contrast(100%)
 }
 
-/* @layer components {
-    input:-webkit-autofill {
-        @apply bg-transparent text-current !important
+
+@layer components {
+    .custom-container {
+      @apply w-[32.7rem] pt-[2.4rem] px-[2.4rem] pb-[3.2rem] 
+             rounded-[10px] bg-[#161d2f] mt-[5.8rem]
+             md:w-[40rem] md:pt-[3.2rem] md:px-[3.2rem] 
+             md:rounded-[20px] md:mt-[7.2rem];
     }
-
-    input:-moz-placeholder-shown {
-        @apply bg-transparent text-current !important
-    }
-} */
-
-
-/* input:-webkit-autofill {
-    background-color: transparent !important;
-    color: inherit !important; 
-}
-
-input:-moz-placeholder-shown {
-    background-color: transparent !important;
-} */
+  }
