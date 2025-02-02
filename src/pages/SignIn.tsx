@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import Movie from "/images/movie.png";
 import { IerrorsSignIn, IUser } from "../types/Types";
 import { useNavigate } from "react-router-dom";
 import SignImg from "../components/SignImg";
+// import { useMediaQuery } from "@mui/material";
+import { useContext } from "react";
+import { MainContext } from "../layouts/Layout";
 
 const SignIn: React.FC = () => {
   const [errors, setErrors] = useState<IerrorsSignIn>({
@@ -23,10 +25,10 @@ const SignIn: React.FC = () => {
     const email = (e.target as HTMLFormElement).email.value;
     const password = (e.target as HTMLFormElement).password.value;
 
-    let user = {
-      email: email,
-      password: password,
-    };
+    // let user = {
+    //   email: email,
+    //   password: password,
+    // };
 
     setErrors((prevErrors) => ({
       ...prevErrors,
@@ -52,12 +54,9 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem]">
+    <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem] md:pt-[8rem] md:pb-[47.3rem]">
       <SignImg />
-      <div
-        className="w-[32.7rem] pt-[2.4rem] px-[2.4rem] pb-[3.2rem] 
-        } rounded-[10px] bg-[#161d2f] mt-[5.8rem]"
-      >
+      <div className="w-[32.7rem] pt-[2.4rem] px-[2.4rem] pb-[3.2rem] rounded-[10px] bg-[#161d2f] mt-[5.8rem] md:w-[40rem] md:pt-[3.2rem] md:px-[3.2rem] md:rounded-[20px] md:mt-[7.2rem]">
         <h3 className="text-[3.2rem] font-light leading-normal tracking-[-0.5px] text-[#fff] ">
           Log In
         </h3>

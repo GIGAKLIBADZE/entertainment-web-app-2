@@ -12,6 +12,7 @@ import { Idata } from "../types/Types";
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+// import { useMediaQuery } from "@mui/material";
 
 export const MainContext = createContext<{
   fetchData: () => Promise<void>;
@@ -26,6 +27,8 @@ export const MainContext = createContext<{
   filterData: () => void;
   toggleSearchBookmark: (x: string) => void;
   findResult: (e: React.FormEvent<HTMLFormElement>) => void;
+  // tablet: boolean;
+  // desktop: boolean;
 }>({
   fetchData: async () => {},
   data: null,
@@ -39,6 +42,8 @@ export const MainContext = createContext<{
   filterData: () => {},
   toggleSearchBookmark: () => {},
   findResult: () => undefined,
+  // tablet: false,
+  // desktop: false,
 });
 
 const Layout: React.FC = () => {
@@ -54,7 +59,9 @@ const Layout: React.FC = () => {
   const location = useLocation();
   console.log(location.pathname);
 
-  // console.log(location.pathname);
+  // const tablet = useMediaQuery(`(min-width: 76.8rem)`);
+  // const desktop = useMediaQuery(`(min-width: 414rem)`);
+
   const filterData = () => {
     if (location.pathname === "/Profile/Home") {
       setMenu(1);
@@ -62,7 +69,6 @@ const Layout: React.FC = () => {
       setMenu(2);
     }
   };
-  // filterData();
 
   location.pathname === "/Profile/Movies" ? console.log(location.pathname) : "";
 
@@ -231,6 +237,8 @@ const Layout: React.FC = () => {
           filterData,
           toggleSearchBookmark,
           findResult,
+          // tablet,
+          // desktop,
         }}
       >
         <Outlet />

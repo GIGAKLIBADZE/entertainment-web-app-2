@@ -1,4 +1,6 @@
 import Movie from "/images/movie.png";
+import { useContext } from "react";
+import { MainContext } from "../layouts/Layout";
 
 const SignImg: React.FC = () => {
   return (

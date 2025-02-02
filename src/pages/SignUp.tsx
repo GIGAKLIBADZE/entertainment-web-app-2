@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Movie from "/images/movie.png";
+import SignImg from "../components/SignImg";
 import { IerrorsSignIn, IUser } from "../types/Types";
 import { useNavigate } from "react-router-dom";
 import { IerrorsSignUp } from "../types/Types";
@@ -53,11 +53,7 @@ const SignUp: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem]">
-      <img
-        src={Movie}
-        alt="Play"
-        className="w-[3.2rem] h-[2.7rem] object-contain"
-      />
+      <SignImg />
       <div className="w-[32.7rem] pt-[2.4rem] px-[2.4rem] pb-[2.6rem] rounded-[10px] bg-[#161d2f] mt-[5.8rem]">
         <h3 className="text-[3.2rem] font-light leading-normal tracking-[-0.5px] text-[#fff] ">
           Sign Up
