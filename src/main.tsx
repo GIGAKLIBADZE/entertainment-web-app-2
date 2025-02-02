@@ -9,11 +9,12 @@ import Search from "./components/Search";
 import Movies from "./pages/Movies";
 import TVSeries from "./pages/TVSeries";
 import Bookmarked from "./pages/Bookmarked";
+import SignIn from "./pages/SignIn";
 
 const router = createBrowserRouter([
   {
-    path: "/:Sign",
-    element: <Sign />,
+    path: "/SignIn",
+    element: <SignIn />,
   },
   {
     path: "/Profile",

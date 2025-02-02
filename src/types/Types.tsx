@@ -1,7 +1,6 @@
-export interface Ierrors {
+export interface IerrorsSignIn {
   emailError: boolean;
   passwordError: boolean;
-  repeatPasswordError: boolean;
 }
 
 export interface Idata {

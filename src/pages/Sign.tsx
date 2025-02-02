@@ -85,14 +85,6 @@ const Sign: React.FC = () => {
     ) {
       navigate("/SignIn");
     }
-
-    // if (
-    //   Sign === "SignIn" &&
-    //   localStorage.getItem("email`") === email
-    //   // localStorage.getItem(`${user.password}`) === password
-    // ) {
-    //   navigate("/Profile/Home");
-    // }
   };
 
   const { Sign } = useParams();
