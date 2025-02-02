@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Movie from "/images/movie.png";
 import { IerrorsSignIn, IUser } from "../types/Types";
 import { useNavigate } from "react-router-dom";
+import SignImg from "../components/SignImg";
 
 const SignIn: React.FC = () => {
   const [errors, setErrors] = useState<IerrorsSignIn>({
@@ -52,11 +53,7 @@ const SignIn: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem]">
-      <img
-        src={Movie}
-        alt="Play"
-        className="w-[3.2rem] h-[2.7rem] object-contain"
-      />
+      <SignImg />
       <div
         className="w-[32.7rem] pt-[2.4rem] px-[2.4rem] pb-[3.2rem] 
         } rounded-[10px] bg-[#161d2f] mt-[5.8rem]"
