@@ -50,11 +50,12 @@ body {
     }
 
     .entertainment-container {
-        @apply mt-[2.4rem] pl-[1.6rem] md:mt-[3.3rem] md:pl-[2.5rem]
+        @apply mt-[2.4rem] px-[1.6rem] md:mt-[3.3rem] md:pl-[2.5rem]
     }
 
     .upper-layout-container {
-        @apply w-full h-[5.6rem] p-[1.6rem] bg-[#161d2f] flex items-center justify-between md:w-[71.9rem] 
-        md:h-[7.2rem] md:pt-[2.1rem] md:pr-[1.6rem] md:pb-[1.9rem] md:pl-[2.4rem] md:mt-[2.3rem] md:m-auto
+        @apply w-full h-[5.6rem] p-[1.6rem] bg-[#161d2f] flex items-center justify-between rounded-[10px] ml-0 md:w-[93.6%] 
+        md:h-[7.2rem] md:pt-[2.1rem] md:pr-[1.6rem] md:pb-[1.9rem] md:ml-[2.5rem] md:mt-[2.3rem] xl:w-[9.6rem] xl:flex-col
+        xl:h-[96rem] xl:rounded-[20px] xl:pt-[3.2rem] xl:pb-[3.2rem] xl:items-baseline
     }
   }

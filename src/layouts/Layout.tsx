@@ -125,102 +125,106 @@ const Layout: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <div className="upper-layout-container">
-        <img
-          src={Movie}
-          alt="Movie"
-          className="w-[2.5rem] h-[2rem] object-contain md:w-[3.2rem]"
-        />
-        <section className="flex items-center gap-[2.4rem] md:gap-[3.2rem]">
+    <div>
+      <div className="flex flex-col xl:flex-row xl:w-[30rem]">
+        <div className="upper-layout-container">
           <img
-            src={All}
-            alt="All"
-            className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
-              location.pathname === "/Profile/Home" ? "invert brightness-0" : ""
-            }`}
-            onClick={() => {
-              if (menu !== 1) {
-                setMenu(1);
-                navigate("/Profile/Home");
-              }
-              setSearch(false);
-            }}
+            src={Movie}
+            alt="Movie"
+            className="w-[2.5rem] h-[2rem] object-contain md:w-[3.2rem]"
           />
+          <section className="flex items-center gap-[2.4rem] md:gap-[3.2rem] xl:flex-col xl:gap-[4rem]">
+            <img
+              src={All}
+              alt="All"
+              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
+                location.pathname === "/Profile/Home"
+                  ? "invert brightness-0"
+                  : ""
+              }`}
+              onClick={() => {
+                if (menu !== 1) {
+                  setMenu(1);
+                  navigate("/Profile/Home");
+                }
+                setSearch(false);
+              }}
+            />
+            <img
+              src={Movies}
+              alt="Movies"
+              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
+                location.pathname === "/Profile/Movies"
+                  ? "invert brightness-0"
+                  : ""
+              }`}
+              onClick={() => {
+                if (menu !== 2) {
+                  setMenu(2);
+                  navigate("/Profile/Movies");
+                }
+                setSearch(false);
+              }}
+            />
+            <img
+              src={TVSeries}
+              alt="TV Series"
+              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
+                location.pathname === "/Profile/TVSeries"
+                  ? "invert brightness-0"
+                  : ""
+              }`}
+              onClick={() => {
+                if (menu !== 3) {
+                  setMenu(3);
+                  navigate("/Profile/TVSeries");
+                }
+                setSearch(false);
+              }}
+            />
+            <img
+              src={Bookmarked}
+              alt="Bookmarked"
+              className={`w-[1.4rem] h-[1.6rem] object-contain md:w-[1.7rem] md:h-[2rem] ${
+                menu === 4 ? "invert brightness-0" : ""
+              }`}
+              onClick={() => {
+                if (menu !== 4) {
+                  setMenu(4);
+                  navigate("/Profile/Bookmarked");
+                }
+                setSearch(false);
+              }}
+            />
+          </section>
           <img
-            src={Movies}
-            alt="Movies"
-            className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
-              location.pathname === "/Profile/Movies"
-                ? "invert brightness-0"
-                : ""
-            }`}
-            onClick={() => {
-              if (menu !== 2) {
-                setMenu(2);
-                navigate("/Profile/Movies");
-              }
-              setSearch(false);
-            }}
+            src={Profile}
+            alt="Profile"
+            className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] md:w-[3.2rem] md:h-[3.2rem] xl:w-[4rem] xl:h-[4rem]"
           />
-          <img
-            src={TVSeries}
-            alt="TV Series"
-            className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
-              location.pathname === "/Profile/TVSeries"
-                ? "invert brightness-0"
-                : ""
-            }`}
-            onClick={() => {
-              if (menu !== 3) {
-                setMenu(3);
-                navigate("/Profile/TVSeries");
-              }
-              setSearch(false);
-            }}
+        </div>
+        <form
+          onSubmit={findResult}
+          className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] md:gap-[2.4rem] xl:pl-[4rem]"
+        >
+          <button>
+            <img
+              src={Search}
+              alt="Search"
+              className="w-[1.8rem] h-[1.8rem] md:w-[2.4rem] md:h-[2.4rem] xl:w-[3.2rem] xl:h-[3.2rem]"
+              onClick={() => {
+                setSearch(true);
+              }}
+            />
+          </button>
+          <input
+            type="text"
+            placeholder="Search for movies or TV series"
+            className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem]"
+            name="search"
           />
-          <img
-            src={Bookmarked}
-            alt="Bookmarked"
-            className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
-              menu === 4 ? "invert brightness-0" : ""
-            }`}
-            onClick={() => {
-              if (menu !== 4) {
-                setMenu(4);
-                navigate("/Profile/Bookmarked");
-              }
-              setSearch(false);
-            }}
-          />
-        </section>
-        <img
-          src={Profile}
-          alt="Profile"
-          className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] md:w-[3.2rem] md:h-[3.2rem]"
-        />
+        </form>
       </div>
-      <form
-        onSubmit={findResult}
-        className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] md:gap-[2.4rem]"
-      >
-        <button>
-          <img
-            src={Search}
-            alt="Search"
-            className="w-[1.8rem] h-[1.8rem] md:w-[2.4rem] md:h-[2.4rem]"
-            onClick={() => {
-              setSearch(true);
-            }}
-          />
-        </button>
-        <input
-          type="text"
-          placeholder="Search for movies or TV series"
-          className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem]"
-          name="search"
-        />
-      </form>
       <MainContext.Provider
         value={{
           data,
@@ -241,7 +245,7 @@ const Layout: React.FC = () => {
       >
         <Outlet />
       </MainContext.Provider>
-    </>
+    </div>
   );
 };
 
