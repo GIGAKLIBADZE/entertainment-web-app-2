@@ -38,16 +38,37 @@ const SignUp: React.FC = () => {
         repeatPasswordError: !repeatPassword,
       }));
 
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+      fetch("/user.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const registered = data.find(
+            (d: IUser) => d.userEmail === email && d.userPassword === password
+          );
+          if (
+            !registered &&
+            user.email !== "" &&
+            user.password !== "" &&
+            password === repeatPassword &&
+            localStorage.getItem("email") !== email &&
+            localStorage.getItem("password") !== password
+          ) {
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+            navigate("/SignIn");
+          }
+        })
+        .catch((error) => console.error(error));
 
-      if (
-        user.email !== "" &&
-        user.password !== "" &&
-        password === repeatPassword
-      ) {
-        navigate("/SignIn");
-      }
+      // localStorage.setItem("email", email);
+      // localStorage.setItem("password", password);
+
+      // if (
+      //   user.email !== "" &&
+      //   user.password !== "" &&
+      //   password === repeatPassword
+      // ) {
+      //   navigate("/SignIn");
+      // }
     }
   };
 
