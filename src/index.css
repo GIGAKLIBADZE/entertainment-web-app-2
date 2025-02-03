@@ -52,4 +52,9 @@ body {
     .entertainment-container {
         @apply mt-[2.4rem] pl-[1.6rem] md:mt-[3.3rem] md:pl-[2.5rem]
     }
+
+    .upper-layout-container {
+        @apply w-full h-[5.6rem] p-[1.6rem] bg-[#161d2f] flex items-center justify-between md:w-[71.9rem] 
+        md:h-[7.2rem] md:pt-[2.1rem] md:pr-[1.6rem] md:pb-[1.9rem] md:pl-[2.4rem] md:mt-[2.3rem] md:m-auto
+    }
   }

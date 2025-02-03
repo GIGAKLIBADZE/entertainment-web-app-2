@@ -47,7 +47,6 @@ export const MainContext = createContext<{
 });
 
 const Layout: React.FC = () => {
-  let test: Idata[] | null | undefined = null;
   const [data, setData] = useState<Idata[] | null | undefined>(null);
   const [search, setSearch] = useState<boolean>(false);
   const [lookingFor, setLookingFor] = useState<Idata[] | null | undefined>(
@@ -127,17 +126,17 @@ const Layout: React.FC = () => {
 
   return (
     <>
-      <div className="w-full h-[5.6rem] p-[1.6rem] bg-[#161d2f] flex items-center justify-between">
+      <div className="upper-layout-container">
         <img
           src={Movie}
           alt="Movie"
-          className="w-[2.5rem] h-[2rem] object-contain"
+          className="w-[2.5rem] h-[2rem] object-contain md:w-[3.2rem]"
         />
-        <section className="flex items-center gap-[2.4rem]">
+        <section className="flex items-center gap-[2.4rem] md:gap-[3.2rem]">
           <img
             src={All}
             alt="All"
-            className={`w-[1.6rem] h-[1.6rem] object-contain ${
+            className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
               location.pathname === "/Profile/Home" ? "invert brightness-0" : ""
             }`}
             onClick={() => {
@@ -151,7 +150,7 @@ const Layout: React.FC = () => {
           <img
             src={Movies}
             alt="Movies"
-            className={`w-[1.6rem] h-[1.6rem] object-contain ${
+            className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
               location.pathname === "/Profile/Movies"
                 ? "invert brightness-0"
                 : ""
@@ -167,7 +166,7 @@ const Layout: React.FC = () => {
           <img
             src={TVSeries}
             alt="TV Series"
-            className={`w-[1.6rem] h-[1.6rem] object-contain ${
+            className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
               location.pathname === "/Profile/TVSeries"
                 ? "invert brightness-0"
                 : ""
@@ -183,7 +182,7 @@ const Layout: React.FC = () => {
           <img
             src={Bookmarked}
             alt="Bookmarked"
-            className={`w-[1.6rem] h-[1.6rem] object-contain ${
+            className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
               menu === 4 ? "invert brightness-0" : ""
             }`}
             onClick={() => {
@@ -198,28 +197,27 @@ const Layout: React.FC = () => {
         <img
           src={Profile}
           alt="Profile"
-          className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] "
+          className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] md:w-[3.2rem] md:h-[3.2rem]"
         />
       </div>
       <form
         onSubmit={findResult}
-        className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem]"
+        className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] md:gap-[2.4rem]"
       >
         <button>
           <img
             src={Search}
             alt="Search"
-            className="w-[1.8rem] h-[1.8rem]"
+            className="w-[1.8rem] h-[1.8rem] md:w-[2.4rem] md:h-[2.4rem]"
             onClick={() => {
               setSearch(true);
-              // navigate("/Profile/Search");
             }}
           />
         </button>
         <input
           type="text"
           placeholder="Search for movies or TV series"
-          className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none"
+          className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem]"
           name="search"
         />
       </form>
