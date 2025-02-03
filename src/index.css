@@ -46,6 +46,10 @@ body {
       @apply w-[32.7rem] pt-[2.4rem] px-[2.4rem] pb-[3.2rem] 
              rounded-[10px] bg-[#161d2f] mt-[5.8rem]
              md:w-[40rem] md:pt-[3.2rem] md:px-[3.2rem] 
-             md:rounded-[20px] md:mt-[7.2rem];
+             md:rounded-[20px] md:mt-[7.2rem] xl:mt-[8.3rem];
+    }
+
+    .entertainment-container {
+        @apply mt-[2.4rem] pl-[1.6rem] md:mt-[3.3rem] md:pl-[2.5rem]
     }
   }

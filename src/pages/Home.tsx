@@ -7,6 +7,7 @@ import FullBookMark from "/images/icon-bookmark-full.svg";
 import "swiper/swiper-bundle.css";
 import { useState } from "react";
 // import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Search from "../components/Search";
 
 const Home: React.FC = () => {
@@ -19,7 +20,10 @@ const Home: React.FC = () => {
     toggleSearchBookmark,
     lookingFor,
     filterData,
+    tablet,
   } = useContext(MainContext);
+
+  console.log(tablet);
 
   return (
     <div>
@@ -27,8 +31,8 @@ const Home: React.FC = () => {
         <Search />
       ) : (
         <div>
-          <div className="mt-[2.6rem] pl-[1.6rem]">
-            <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff]">
+          <div className="entertainment-container">
+            <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff] md:text-[3.2rem] md:tracking-[-0.5px]">
               Trending
             </h2>
             <p></p>
@@ -50,7 +54,11 @@ const Home: React.FC = () => {
                     <SwiperSlide style={{ width: "24.5rem" }} key={item.title}>
                       <div>
                         <img
-                          src={item.thumbnail.regular.small}
+                          src={
+                            tablet
+                              ? item.thumbnail.trending.large
+                              : item.thumbnail.trending.small
+                          }
                           alt="Thumbnail"
                           className="w-[24rem] h-[14rem] rounded-[8px] relative"
                         />
@@ -112,9 +120,9 @@ const Home: React.FC = () => {
               </Swiper>
             </section>
           </div>
-          <div className="mt-[2.4rem] px-[1.6rem] pb-[6.1rem]">
-            <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff]">
-              Reccomended for you
+          <div className="entertainment-container">
+            <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff] md:text-[3.2rem] md:tracking-[-0.5px]">
+              Recommended for you
             </h2>
             <section className="mt-[2.4rem] flex justify-center flex-wrap gap-x-[1.5rem] gap-y-[1.6rem]">
               {data

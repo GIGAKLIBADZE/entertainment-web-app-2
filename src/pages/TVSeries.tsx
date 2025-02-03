@@ -20,8 +20,8 @@ const TVSeries: React.FC = () => {
         <Search />
       ) : (
         <div>
-          <div className="mt-[2.4rem] px-[1.6rem] pb-[6.1rem]">
-            <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff]">
+          <div className="entertainment-container">
+            <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff] md:text-[3.2rem] md:tracking-[-0.5px]">
               TV Series
             </h2>
             <section className="mt-[2.4rem] flex justify-center flex-wrap gap-x-[1.5rem] gap-y-[1.6rem]">

@@ -52,7 +52,7 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem]">
+    <div className="flex flex-col items-center pt-[4.8rem] pb-[4.8rem] xl:pt-[7.8rem] xl:pb-[25rem]">
       <SignImg />
       <div className="custom-container">
         <h3 className="text-[3.2rem] font-light leading-normal tracking-[-0.5px] text-[#fff] ">
