@@ -58,17 +58,6 @@ const SignUp: React.FC = () => {
           }
         })
         .catch((error) => console.error(error));
-
-      // localStorage.setItem("email", email);
-      // localStorage.setItem("password", password);
-
-      // if (
-      //   user.email !== "" &&
-      //   user.password !== "" &&
-      //   password === repeatPassword
-      // ) {
-      //   navigate("/SignIn");
-      // }
     }
   };
 
@@ -85,7 +74,7 @@ const SignUp: React.FC = () => {
               name="email"
               type="email"
               placeholder="Email Address"
-              className="w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[2.3rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+              className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[2.3rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
             />
             {errors.emailError ? (
               <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
@@ -98,7 +87,7 @@ const SignUp: React.FC = () => {
               name="password"
               type="text"
               placeholder="Password"
-              className="w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+              className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
             />
             {errors.passwordError ? (
               <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
@@ -111,7 +100,7 @@ const SignUp: React.FC = () => {
               name="repeatPassword"
               type="text"
               placeholder="Repeat Password"
-              className="w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+              className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
             />
             {errors.repeatPasswordError ? (
               <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
