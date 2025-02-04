@@ -8,7 +8,7 @@ const SearchArea: React.FC = () => {
   return (
     <form
       onSubmit={findResult}
-      className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] md:gap-[2.4rem] xl:pl-[4rem]"
+      className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] md:gap-[2.4rem]  xl:pt-[6.8rem] xl:mt-0 xl:ml-[3.6rem] xl:pl-0"
     >
       <button>
         <img

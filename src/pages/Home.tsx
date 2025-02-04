@@ -130,8 +130,6 @@ const Home: React.FC = () => {
               Recommended for you
             </h2>
             <section className="mt-[2.4rem] grid grid-cols-[repeat(auto-fit,_minmax(15rem,_1fr))] gap-x-[1.5rem] gap-y-[1.6rem] mx-auto">
-              {/* <div className="flex flex-wrap gap-x-[1.5rem] gap-y-[1.6rem] mx-auto"> */}
-              {/* <div className="grid grid-cols-[repeat(auto-fit,_minmax(15rem,_1fr))] gap-x-[1.5rem] gap-y-[1.6rem] mx-auto"> */}
               {data
                 ?.filter((item) => item.isTrending === false)
                 .map((item) => (
@@ -182,57 +180,6 @@ const Home: React.FC = () => {
                     </p>
                   </div>
                 ))}
-
-              {/* {data
-                ?.filter((item) => item.isTrending === false)
-                .map((item) => (
-                  <div key={item.title} className="relative">
-                    <img
-                      src={item.thumbnail.regular.small}
-                      alt="Thumbnail"
-                      className="w-[16.4rem] h-[11rem] rounded-[8px] object-contain "
-                    />
-                    <div
-                      className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[12.4rem]"
-                      onClick={() => toggleBookmark(item.title)}
-                    >
-                      <img
-                        src={item.isBookmarked ? FullBookMark : EmptyBookMark}
-                        alt="Bookmark"
-                      />
-                    </div>
-                    <section className="flex items-center gap-[0.7rem] mt-[0.8rem]">
-                      <small className="description">
-                        {item.year}{" "}
-                        <span className="opacity-[0.5] ml-[0.6rem]">•</span>
-                      </small>
-                      <div></div>
-                      <div className="flex items-center gap-[0.4rem]">
-                        <img
-                          src={
-                            item.category === "Movie"
-                              ? "/images/icon-nav-movies.svg"
-                              : "/images/icon-nav-tv-series.svg"
-                          }
-                          alt="Category"
-                          className={`w-[1rem]
-                        ${item.category === "Movie" ? "h-[1rem]" : "h-[0.7rem]"}
-                      `}
-                        />
-                        <small className="description">
-                          {item.category}{" "}
-                          <span className="opacity-[0.5] ml-[0.6rem]">•</span>
-                        </small>
-                      </div>
-
-                      <div></div>
-                      <small className="description">{item.rating}</small>
-                    </section>
-                    <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem]">
-                      {item.title}
-                    </p>
-                  </div>
-                ))} */}
             </section>
           </div>
           <div className="mt-[2.4rem] px-[1.6rem] pb-[1.6rem]"></div>

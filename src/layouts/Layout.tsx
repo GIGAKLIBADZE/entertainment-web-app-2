@@ -126,14 +126,14 @@ const Layout: React.FC = () => {
   return (
     <div className="xl:flex">
       <div></div>
-      <div className="flex flex-col xl:flex-row xl:w-[30rem]">
+      <div className="flex flex-col xl:flex-row ">
         <div className="upper-layout-container">
           <img
             src={Movie}
             alt="Movie"
             className="w-[2.5rem] h-[2rem] object-contain md:w-[3.2rem]"
           />
-          <section className="flex items-center gap-[2.4rem] md:gap-[3.2rem] xl:flex-col xl:gap-[4rem]">
+          <section className="flex items-center gap-[2.4rem] md:gap-[3.2rem] xl:flex-col xl:gap-[4rem] xl:mt-[-40.5rem]">
             <img
               src={All}
               alt="All"
@@ -203,27 +203,6 @@ const Layout: React.FC = () => {
             className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] md:w-[3.2rem] md:h-[3.2rem] xl:w-[4rem] xl:h-[4rem]"
           />
         </div>
-        {/* <form
-          onSubmit={findResult}
-          className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] md:gap-[2.4rem] xl:pl-[4rem]"
-        >
-          <button>
-            <img
-              src={Search}
-              alt="Search"
-              className="w-[1.8rem] h-[1.8rem] md:w-[2.4rem] md:h-[2.4rem] xl:w-[3.2rem] xl:h-[3.2rem]"
-              onClick={() => {
-                setSearch(true);
-              }}
-            />
-          </button>
-          <input
-            type="text"
-            placeholder="Search for movies or TV series"
-            className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem] xl:w-[20rem]"
-            name="search"
-          />
-        </form> */}
       </div>
       <MainContext.Provider
         value={{
