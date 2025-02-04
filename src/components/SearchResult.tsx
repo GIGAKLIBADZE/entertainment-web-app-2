@@ -3,7 +3,7 @@ import { MainContext } from "../layouts/Layout";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 
-const Search: React.FC = () => {
+const SearchResult: React.FC = () => {
   const {
     lookingFor,
     search,
@@ -83,4 +83,4 @@ const Search: React.FC = () => {
   );
 };
 
-export default Search;
+export default SearchResult;

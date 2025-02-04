@@ -3,7 +3,8 @@ import { MainContext } from "../layouts/Layout";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 import { useLocation } from "react-router-dom";
-import Search from "../components/Search";
+import SearchResult from "../components/SearchResult";
+import SearchArea from "../components/SearchArea";
 
 const Bookmarked: React.FC = () => {
   const { data, menu, setMenu, toggleBookmark, search } =
@@ -17,10 +18,14 @@ const Bookmarked: React.FC = () => {
   return (
     <div>
       {search ? (
-        <Search />
+        <div>
+          <SearchArea />
+          <SearchResult />
+        </div>
       ) : (
         <div>
           <div>
+            <SearchArea />
             <div className="entertainment-container">
               <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff] md:text-[3.2rem] md:tracking-[-0.5px]">
                 Bookmarked Movies

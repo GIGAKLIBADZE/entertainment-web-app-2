@@ -5,7 +5,6 @@ import Movies from "/images/icon-nav-movies.svg";
 import TVSeries from "/images/icon-nav-tv-series.svg";
 import Bookmarked from "/images/icon-nav-bookmark.svg";
 import Profile from "/images/image-avatar.png";
-import Search from "/images/icon-search.svg";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Idata } from "../types/Types";
@@ -125,7 +124,8 @@ const Layout: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="xl:flex">
+      <div></div>
       <div className="flex flex-col xl:flex-row xl:w-[30rem]">
         <div className="upper-layout-container">
           <img
@@ -203,7 +203,7 @@ const Layout: React.FC = () => {
             className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] md:w-[3.2rem] md:h-[3.2rem] xl:w-[4rem] xl:h-[4rem]"
           />
         </div>
-        <form
+        {/* <form
           onSubmit={findResult}
           className="pl-[1.6rem] flex items-center gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] md:gap-[2.4rem] xl:pl-[4rem]"
         >
@@ -220,10 +220,10 @@ const Layout: React.FC = () => {
           <input
             type="text"
             placeholder="Search for movies or TV series"
-            className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem]"
+            className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem] xl:w-[20rem]"
             name="search"
           />
-        </form>
+        </form> */}
       </div>
       <MainContext.Provider
         value={{

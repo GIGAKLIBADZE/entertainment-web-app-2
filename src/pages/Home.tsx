@@ -8,7 +8,8 @@ import "swiper/swiper-bundle.css";
 import { useState } from "react";
 // import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Search from "../components/Search";
+import SearchResult from "../components/SearchResult";
+import SearchArea from "../components/SearchArea";
 
 const Home: React.FC = () => {
   const {
@@ -28,9 +29,13 @@ const Home: React.FC = () => {
   return (
     <div>
       {search ? (
-        <Search />
+        <div>
+          <SearchArea />
+          <SearchResult />
+        </div>
       ) : (
         <div>
+          <SearchArea />
           <div className="entertainment-container">
             <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff] md:text-[3.2rem] md:tracking-[-0.5px]">
               Trending
