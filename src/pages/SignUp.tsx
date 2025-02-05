@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SignImg from "../components/SignImg";
-import { IerrorsSignIn, IUser } from "../types/Types";
+import { IUser } from "../types/Types";
 import { useNavigate } from "react-router-dom";
 import { IerrorsSignUp } from "../types/Types";
 
