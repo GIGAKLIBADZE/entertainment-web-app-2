@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   const { data, toggleBookmark, search } = useContext(MainContext);
 
   return (
-    <div>
+    <div className="w-full">
       {search ? (
         <div>
           <SearchArea />
