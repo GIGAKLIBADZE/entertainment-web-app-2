@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { IerrorsSignIn, IUser } from "../types/Types";
 import { useNavigate } from "react-router-dom";
 import SignImg from "../components/SignImg";
-// import { useMediaQuery } from "@mui/material";
-import { useContext } from "react";
-import { MainContext } from "../layouts/Layout";
 
 const SignIn: React.FC = () => {
   const [errors, setErrors] = useState<IerrorsSignIn>({
