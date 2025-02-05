@@ -13,23 +13,34 @@ const Home: React.FC = () => {
 
   return (
     <div className="w-full">
+      <SearchArea />
       {search ? (
         <div>
-          <SearchArea />
           <SearchResult />
         </div>
       ) : (
         <div>
-          <SearchArea />
           <div className="entertainment-container">
             <h2 className="title">Trending</h2>
             <p></p>
             <section className="mt-[1.6rem]">
-              <Swiper spaceBetween={10} slidesPerView={"auto"}>
+              <Swiper
+                spaceBetween={10}
+                slidesPerView={"auto"}
+                breakpoints={{
+                  768: {
+                    spaceBetween: 30,
+                  },
+                }}
+              >
                 {data
                   ?.filter((item) => item.isTrending === true)
                   .map((item) => (
-                    <SwiperSlide style={{ width: "24.5rem" }} key={item.title}>
+                    <SwiperSlide
+                      style={{ width: "24.5rem" }}
+                      className="swiper-slide"
+                      key={item.title}
+                    >
                       <div>
                         <img
                           src={item.thumbnail.regular.small}

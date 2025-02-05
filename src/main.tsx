@@ -1,7 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
@@ -31,6 +35,10 @@ const router = createBrowserRouter([
       { path: "/Profile/TVSeries", element: <TVSeries /> },
       { path: "/Profile/Bookmarked", element: <Bookmarked /> },
     ],
+  },
+  {
+    path: "/",
+    element: <Navigate to="/SignIn" replace />,
   },
 ]);
 

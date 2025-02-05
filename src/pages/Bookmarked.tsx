@@ -10,15 +10,14 @@ const Bookmarked: React.FC = () => {
 
   return (
     <div className="w-full">
+      <SearchArea />
       {search ? (
         <div>
-          <SearchArea />
           <SearchResult />
         </div>
       ) : (
         <div>
           <div>
-            <SearchArea />
             <div className="entertainment-container">
               <h2 className="title">Bookmarked Movies</h2>
               <section className="items-container">

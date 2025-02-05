@@ -11,12 +11,6 @@ const SignUp: React.FC = () => {
     repeatPasswordError: false,
   });
 
-  const [userInfo, setUserInfo] = useState<IUser>({
-    userEmail: "",
-    userPassword: "",
-    userRepeatPassword: "",
-  });
-
   const [matchError, setMatchError] = useState({
     repeatPasswordError: false,
   });
@@ -30,12 +24,6 @@ const SignUp: React.FC = () => {
       emailError: false,
       passwordError: false,
       repeatPasswordError: false,
-    });
-
-    setUserInfo({
-      userEmail: "",
-      userPassword: "",
-      userRepeatPassword: "",
     });
 
     const email = (e.target as HTMLFormElement).email.value;
