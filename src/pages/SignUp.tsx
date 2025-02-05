@@ -11,6 +11,16 @@ const SignUp: React.FC = () => {
     repeatPasswordError: false,
   });
 
+  const [userInfo, setUserInfo] = useState<IUser>({
+    userEmail: "",
+    userPassword: "",
+    userRepeatPassword: "",
+  });
+
+  const [matchError, setMatchError] = useState({
+    repeatPasswordError: false,
+  });
+
   const navigate = useNavigate();
 
   const checkValidation = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,6 +30,12 @@ const SignUp: React.FC = () => {
       emailError: false,
       passwordError: false,
       repeatPasswordError: false,
+    });
+
+    setUserInfo({
+      userEmail: "",
+      userPassword: "",
+      userRepeatPassword: "",
     });
 
     const email = (e.target as HTMLFormElement).email.value;
@@ -59,6 +75,12 @@ const SignUp: React.FC = () => {
         })
         .catch((error) => console.error(error));
     }
+
+    if (password !== repeatPassword) {
+      setMatchError(() => ({
+        repeatPasswordError: true,
+      }));
+    }
   };
 
   return (
@@ -74,6 +96,9 @@ const SignUp: React.FC = () => {
               name="email"
               type="email"
               placeholder="Email Address"
+              onChange={() =>
+                setErrors((prev) => ({ ...prev, emailError: false }))
+              }
               className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[2.3rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
             />
             {errors.emailError ? (
@@ -87,6 +112,9 @@ const SignUp: React.FC = () => {
               name="password"
               type="text"
               placeholder="Password"
+              onChange={() =>
+                setErrors((prev) => ({ ...prev, passwordError: false }))
+              }
               className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
             />
             {errors.passwordError ? (
@@ -100,11 +128,22 @@ const SignUp: React.FC = () => {
               name="repeatPassword"
               type="text"
               placeholder="Repeat Password"
+              onChange={() => {
+                setMatchError(() => ({
+                  repeatPasswordError: false,
+                }));
+                setErrors((prev) => ({ ...prev, repeatPasswordError: false }));
+              }}
               className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
             />
             {errors.repeatPasswordError ? (
               <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
                 Can't be empty
+              </p>
+            ) : null}
+            {matchError.repeatPasswordError && !errors.repeatPasswordError ? (
+              <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
+                Passwords do not match
               </p>
             ) : null}
           </div>

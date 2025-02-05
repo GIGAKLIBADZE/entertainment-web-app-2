@@ -66,6 +66,9 @@ const SignIn: React.FC = () => {
               name="email"
               type="email"
               placeholder="Email Address"
+              onChange={() =>
+                setErrors((prev) => ({ ...prev, emailError: false }))
+              }
               className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[2.3rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
             />
             {errors.emailError ? (
@@ -79,6 +82,9 @@ const SignIn: React.FC = () => {
               name="password"
               type="text"
               placeholder="Password"
+              onChange={() =>
+                setErrors((prev) => ({ ...prev, passwordError: false }))
+              }
               className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
             />
             {errors.passwordError ? (

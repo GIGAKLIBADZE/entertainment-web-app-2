@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
+import Play from "/images/icon-play.svg";
 import "swiper/swiper-bundle.css";
 import SearchResult from "../components/SearchResult";
 import SearchArea from "../components/SearchArea";
@@ -88,7 +89,6 @@ const Home: React.FC = () => {
                       </div>
                     </SwiperSlide>
                   ))}
-                {/* </SwiperSlide> */}
                 ...
               </Swiper>
             </section>
@@ -100,20 +100,35 @@ const Home: React.FC = () => {
                 ?.filter((item) => item.isTrending === false)
                 .map((item) => (
                   <div key={item.title} className="relative w-full">
-                    <img
-                      src={item.thumbnail.regular.large}
-                      alt="Thumbnail"
-                      className="w-full rounded-[8px] object-cover "
-                    />
-                    <div
-                      className="bookmark-container"
-                      onClick={() => toggleBookmark(item.title)}
-                    >
+                    <div className="sub-div">
                       <img
-                        src={item.isBookmarked ? FullBookMark : EmptyBookMark}
-                        alt="Bookmark"
+                        src={item.thumbnail.regular.large}
+                        alt="Thumbnail"
+                        className="item-image"
                       />
+                      <div
+                        className="bookmark-container"
+                        onClick={() => toggleBookmark(item.title)}
+                      >
+                        <img
+                          src={item.isBookmarked ? FullBookMark : EmptyBookMark}
+                          alt="Bookmark"
+                        />
+                      </div>
+                      {/* <div className="select"> */}
+                      <div className="select">
+                        <img
+                          src={Play}
+                          alt="Play"
+                          className="w-[3rem] h-[3rem] opacity-100"
+                        />
+                        <span className="text-[1.8rem] font-medium leading-normal text-white">
+                          Play
+                        </span>
+                      </div>
+                      {/* </div> */}
                     </div>
+
                     <section className="flex items-center gap-[0.6rem] mt-[0.8rem] md:gap-[0.8rem]">
                       <small className="description">
                         {item.year}{" "}
@@ -141,13 +156,23 @@ const Home: React.FC = () => {
                           </span>
                         </small>
                       </div>
-
-                      <div></div>
                       <small className="description">{item.rating}</small>
                     </section>
                     <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem] md:text-[1.8rem]">
                       {item.title}
                     </p>
+                    {/* <div className="select">
+                      <div className="w-[41.8%] rounded-[2.9rem] h-[4.8rem] bg-amber-200 top-[36.2%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <img
+                          src={Play}
+                          alt="Play"
+                          className="w-[3rem] h-[3rem] "
+                        />
+                        <span className="text-[1.8rem] font-medium leading-normal text-white">
+                          Play
+                        </span>
+                      </div>
+                    </div> */}
                   </div>
                 ))}
             </section>

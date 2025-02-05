@@ -32,4 +32,5 @@ export interface Idata {
 export interface IUser {
   userEmail: string;
   userPassword: string;
+  userRepeatPassword: string;
 }
