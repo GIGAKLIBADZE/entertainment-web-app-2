@@ -4,14 +4,8 @@ import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 
 const SearchResult: React.FC = () => {
-  const {
-    lookingFor,
-    search,
-    findResult,
-    data,
-    toggleSearchBookmark,
-    toggleBookmark,
-  } = useContext(MainContext);
+  const { lookingFor, search, toggleSearchBookmark, toggleBookmark } =
+    useContext(MainContext);
 
   // findResult();
 

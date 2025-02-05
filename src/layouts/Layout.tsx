@@ -136,11 +136,12 @@ const Layout: React.FC = () => {
             <img
               src={All}
               alt="All"
-              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
-                location.pathname === "/Profile/Home"
-                  ? "invert brightness-0"
-                  : ""
-              }`}
+              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
+                hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
+                  location.pathname === "/Profile/Home"
+                    ? "invert brightness-0"
+                    : ""
+                }`}
               onClick={() => {
                 if (menu !== 1) {
                   setMenu(1);
@@ -152,11 +153,12 @@ const Layout: React.FC = () => {
             <img
               src={Movies}
               alt="Movies"
-              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
-                location.pathname === "/Profile/Movies"
-                  ? "invert brightness-0"
-                  : ""
-              }`}
+              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
+                hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
+                  location.pathname === "/Profile/Movies"
+                    ? "invert brightness-0"
+                    : ""
+                }`}
               onClick={() => {
                 if (menu !== 2) {
                   setMenu(2);
@@ -168,11 +170,12 @@ const Layout: React.FC = () => {
             <img
               src={TVSeries}
               alt="TV Series"
-              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] ${
-                location.pathname === "/Profile/TVSeries"
-                  ? "invert brightness-0"
-                  : ""
-              }`}
+              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
+                hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer  ${
+                  location.pathname === "/Profile/TVSeries"
+                    ? "invert brightness-0"
+                    : ""
+                }`}
               onClick={() => {
                 if (menu !== 3) {
                   setMenu(3);
@@ -184,11 +187,12 @@ const Layout: React.FC = () => {
             <img
               src={Bookmarked}
               alt="Bookmarked"
-              className={`w-[1.4rem] h-[1.6rem] object-contain md:w-[1.7rem] md:h-[2rem] ${
-                location.pathname === "/Profile/Bookmarked"
-                  ? "invert brightness-0"
-                  : ""
-              }`}
+              className={`w-[1.4rem] h-[1.6rem] object-contain md:w-[1.7rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
+                hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
+                  location.pathname === "/Profile/Bookmarked"
+                    ? "invert brightness-0"
+                    : ""
+                }`}
               onClick={() => {
                 if (menu !== 4) {
                   setMenu(4);
