@@ -23,7 +23,7 @@ const SearchArea: React.FC = () => {
       <input
         type="text"
         placeholder="Search for movies or TV series"
-        className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem] xl:w-[20rem]"
+        className="w-[60%] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem] xl:wfull"
         name="search"
       />
     </form>

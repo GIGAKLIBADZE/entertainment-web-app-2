@@ -55,7 +55,6 @@ const Layout: React.FC = () => {
   const [menu, setMenu] = useState<number>(1);
 
   const location = useLocation();
-  console.log(location.pathname);
 
   const tablet = useMediaQuery(`(min-width: 768px)`);
   const desktop = useMediaQuery(`(min-width: 414rem)`);
@@ -186,7 +185,9 @@ const Layout: React.FC = () => {
               src={Bookmarked}
               alt="Bookmarked"
               className={`w-[1.4rem] h-[1.6rem] object-contain md:w-[1.7rem] md:h-[2rem] ${
-                menu === 4 ? "invert brightness-0" : ""
+                location.pathname === "/Profile/Bookmarked"
+                  ? "invert brightness-0"
+                  : ""
               }`}
               onClick={() => {
                 if (menu !== 4) {

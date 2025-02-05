@@ -2,21 +2,14 @@ import { useContext } from "react";
 import { MainContext } from "../layouts/Layout";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
-import { useLocation } from "react-router-dom";
 import SearchResult from "../components/SearchResult";
 import SearchArea from "../components/SearchArea";
 
 const TVSeries: React.FC = () => {
-  const { data, menu, setMenu, toggleBookmark, search } =
-    useContext(MainContext);
-
-  // const location = useLocation();
-  // if (location.pathname === "/Profile/TVSeries") {
-  //   setMenu(3);
-  // }
+  const { data, toggleBookmark, search } = useContext(MainContext);
 
   return (
-    <div>
+    <div className="w-full">
       {search ? (
         <div>
           <SearchArea />
@@ -26,21 +19,19 @@ const TVSeries: React.FC = () => {
         <div>
           <SearchArea />
           <div className="entertainment-container">
-            <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff] md:text-[3.2rem] md:tracking-[-0.5px]">
-              TV Series
-            </h2>
-            <section className="mt-[2.4rem] flex justify-center flex-wrap gap-x-[1.5rem] gap-y-[1.6rem]">
+            <h2 className="title">TV Series</h2>
+            <section className="items-container">
               {data
                 ?.filter((item) => item.category === "TV Series")
                 .map((item) => (
-                  <div key={item.title} className="relative">
+                  <div key={item.title} className="relative w-full">
                     <img
                       src={item.thumbnail.regular.small}
                       alt="Thumbnail"
-                      className="w-[16.4rem] h-[11rem] rounded-[8px] object-contain"
+                      className="w-full rounded-[8px] object-cover"
                     />
                     <div
-                      className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[12.4rem]"
+                      className="bookmark-container"
                       onClick={() => toggleBookmark(item.title)}
                     >
                       <img
@@ -48,10 +39,12 @@ const TVSeries: React.FC = () => {
                         alt="Bookmark"
                       />
                     </div>
-                    <section className="flex items-center gap-[0.7rem] mt-[0.8rem]">
+                    <section className="flex items-center gap-[0.6rem] mt-[0.8rem] md:gap-[0.8rem]">
                       <small className="description">
                         {item.year}{" "}
-                        <span className="opacity-[0.5] ml-[0.6rem]">•</span>
+                        <span className="opacity-[0.5] ml-[0.6rem] md:ml-[0.8rem]">
+                          •
+                        </span>
                       </small>
                       <div></div>
                       <div className="flex items-center gap-[0.4rem]">
@@ -68,14 +61,16 @@ const TVSeries: React.FC = () => {
                         />
                         <small className="description">
                           {item.category}{" "}
-                          <span className="opacity-[0.5] ml-[0.6rem]">•</span>
+                          <span className="opacity-[0.5] ml-[0.6rem] md:ml-[0.8rem]">
+                            •
+                          </span>
                         </small>
                       </div>
 
                       <div></div>
                       <small className="description">{item.rating}</small>
                     </section>
-                    <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem]">
+                    <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem] md:text-[1.8rem]">
                       {item.title}
                     </p>
                   </div>

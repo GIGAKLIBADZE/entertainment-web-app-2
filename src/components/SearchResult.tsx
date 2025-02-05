@@ -19,21 +19,21 @@ const SearchResult: React.FC = () => {
     <div className="mt-[2.4rem] px-[1.6rem] pb-[1.6rem]">
       {search ? (
         <div>
-          <h2 className="text-[2rem] font-light leading-normal tracking-[-0.31px] text-[#fff]">
+          <h2 className="title">
             {lookingFor?.length
               ? `Found ${lookingFor?.length} results for 'Earth'`
               : "No result"}
           </h2>
-          <section className="mt-[2.4rem]">
+          <section className="items-contaiener">
             {lookingFor?.map((item) => (
-              <div key={item.title} className="relative">
+              <div key={item.title} className="relative w-full">
                 <img
                   src={item.thumbnail.regular.small}
                   alt="Thumbnail"
-                  className="w-[16.4rem] h-[11rem] rounded-[8px] object-contain"
+                  className="w-auto rounded-[8px] object-cover"
                 />
                 <div
-                  className="w-[3.2rem] h-[3.2rem] rounded-[50%] bg-[#10141e] flex items-center justify-center opacity-[0.5] absolute top-[0.8rem] left-[12.4rem]"
+                  className="bookmark-container"
                   onClick={() => {
                     toggleBookmark(item.title);
                     toggleSearchBookmark(item.title);
@@ -44,10 +44,12 @@ const SearchResult: React.FC = () => {
                     alt="Bookmark"
                   />
                 </div>
-                <section className="flex items-center gap-[0.7rem] mt-[0.8rem]">
+                <section className="flex items-center gap-[0.6rem] mt-[0.8rem] md:gap-[0.8rem]">
                   <small className="description">
                     {item.year}{" "}
-                    <span className="opacity-[0.5] ml-[0.6rem]">•</span>
+                    <span className="opacity-[0.5] ml-[0.6rem] md:ml-[0.8rem]">
+                      •
+                    </span>
                   </small>
                   <div></div>
                   <div className="flex items-center gap-[0.4rem]">
@@ -64,14 +66,16 @@ const SearchResult: React.FC = () => {
                     />
                     <small className="description">
                       {item.category}{" "}
-                      <span className="opacity-[0.5] ml-[0.6rem]">•</span>
+                      <span className="opacity-[0.5] ml-[0.6rem] md:ml-[0.8rem]">
+                        •
+                      </span>
                     </small>
                   </div>
 
                   <div></div>
                   <small className="description">{item.rating}</small>
                 </section>
-                <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem]">
+                <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem] md:text-[1.8rem]">
                   {item.title}
                 </p>
               </div>
