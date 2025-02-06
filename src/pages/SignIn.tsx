@@ -9,6 +9,10 @@ const SignIn: React.FC = () => {
     passwordError: false,
   });
 
+  const [existError, setExistError] = useState({
+    userexistError: false,
+  });
+
   const navigate = useNavigate();
 
   const checkValidation = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,7 +41,7 @@ const SignIn: React.FC = () => {
       .then((response) => response.json())
       .then((data) => {
         const registered = data.find(
-          (d: IUser) => d.userEmail === email && d.userPassword === password
+          (d: IUser) => d.userEmail === email || d.userPassword === password
         );
         if (
           registered ||
@@ -45,6 +49,13 @@ const SignIn: React.FC = () => {
             localStorage.getItem("password") === password)
         ) {
           navigate("/Profile/Home");
+        } else if (
+          registered ||
+          localStorage.getItem("email") === email ||
+          localStorage.getItem("password") === password
+        ) {
+          setExistError({ userexistError: true });
+          return;
         }
       })
       .catch((error) => console.error(error));
@@ -90,6 +101,11 @@ const SignIn: React.FC = () => {
               </p>
             ) : null}
           </div>
+          {existError.userexistError ? (
+            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] text-center mt-[2rem]">
+              email or password (or both) already exist
+            </p>
+          ) : null}
           <button className="w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal text-[#fff] mt-[5.4rem] cursor-pointer hover:bg-[#fff] hover:text-[#161d2f]">
             Login to your account
           </button>

@@ -15,6 +15,10 @@ const SignUp: React.FC = () => {
     repeatPasswordError: false,
   });
 
+  const [existError, setExistError] = useState({
+    userexistError: false,
+  });
+
   const navigate = useNavigate();
 
   const checkValidation = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,6 +28,10 @@ const SignUp: React.FC = () => {
       emailError: false,
       passwordError: false,
       repeatPasswordError: false,
+    });
+
+    setExistError({
+      userexistError: false,
     });
 
     const email = (e.target as HTMLFormElement).email.value;
@@ -46,7 +54,7 @@ const SignUp: React.FC = () => {
         .then((response) => response.json())
         .then((data) => {
           const registered = data.find(
-            (d: IUser) => d.userEmail === email && d.userPassword === password
+            (d: IUser) => d.userEmail === email || d.userPassword === password
           );
           if (
             !registered &&
@@ -59,6 +67,13 @@ const SignUp: React.FC = () => {
             localStorage.setItem("email", email);
             localStorage.setItem("password", password);
             navigate("/SignIn");
+          } else if (
+            registered ||
+            localStorage.getItem("email") === email ||
+            localStorage.getItem("password") === password
+          ) {
+            setExistError({ userexistError: true });
+            return;
           }
         })
         .catch((error) => console.error(error));
@@ -135,6 +150,11 @@ const SignUp: React.FC = () => {
               </p>
             ) : null}
           </div>
+          {existError.userexistError ? (
+            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] text-center mt-[2rem]">
+              email or password (or both) already exist
+            </p>
+          ) : null}
           <button className="w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal text-[#fff] mt-[5.4rem] cursor-pointer hover:bg-[#fff] hover:text-[#161d2f]">
             Create an account
           </button>

@@ -5,10 +5,7 @@ import FullBookMark from "/images/icon-bookmark-full.svg";
 import HoveredItem from "./HoveredItem";
 
 const SearchResult: React.FC = () => {
-  const { lookingFor, search, toggleSearchBookmark, toggleBookmark } =
-    useContext(MainContext);
-
-  // findResult();
+  const { lookingFor, search, toggleBookmark } = useContext(MainContext);
 
   return (
     <div className="mt-[2.4rem] pb-[1.6rem]">
