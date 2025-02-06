@@ -118,7 +118,7 @@ body {
      }
 
      .item-image {
-        @apply w-full rounded-[8px] object-cover hover:opacity-[0.5]
+        @apply w-full rounded-[8px] object-cover
      }
 
      .sub-div {
@@ -138,8 +138,18 @@ body {
      }
 
      .select {
-        @apply  w-[41.8%] rounded-[2.9rem] h-[4.8rem] opacity-[0.25] top-1/2 absolute left-1/2 
+        @apply  w-[41.8%] rounded-[2.9rem] h-[4.8rem] top-1/2 absolute left-1/2 
         transform -translate-x-1/2 -translate-y-1/2  items-center justify-center 
          flex  gap-2 bg-black  p-2 
      }
+
+     .child {
+        @apply invisible
+     }
+
+     .parent:hover .child {
+        @apply visible
+     }
   }
+
+  /* // blend mode */

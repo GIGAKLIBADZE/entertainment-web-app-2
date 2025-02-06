@@ -24,15 +24,7 @@ const Home: React.FC = () => {
             <h2 className="title">Trending</h2>
             <p></p>
             <section className="mt-[1.6rem]">
-              <Swiper
-                spaceBetween={10}
-                slidesPerView={"auto"}
-                breakpoints={{
-                  768: {
-                    spaceBetween: 30,
-                  },
-                }}
-              >
+              <Swiper spaceBetween={10} slidesPerView={"auto"}>
                 {data
                   ?.filter((item) => item.isTrending === true)
                   .map((item) => (
@@ -111,7 +103,7 @@ const Home: React.FC = () => {
                 ?.filter((item) => item.isTrending === false)
                 .map((item) => (
                   <div key={item.title} className="relative w-full">
-                    <div className="sub-div">
+                    <div className="relative parent">
                       <img
                         src={item.thumbnail.regular.large}
                         alt="Thumbnail"
@@ -126,18 +118,14 @@ const Home: React.FC = () => {
                           alt="Bookmark"
                         />
                       </div>
-                      {/* <div className="select"> */}
-                      <div className="select">
-                        <img
-                          src={Play}
-                          alt="Play"
-                          className="w-[3rem] h-[3rem] opacity-100"
-                        />
-                        <span className="text-[1.8rem] font-medium leading-normal text-white">
-                          Play
-                        </span>
+                      <div className="bg-black/50 w-full absolute h-[100%] top-0 child cursor-pointer">
+                        <div className="absolute w-[41.8%] rounded-[2.9rem] h-[4.8rem] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center gap-[16.2%] bg-white/25">
+                          <img src={Play} alt="Play" className="" />
+                          <span className="text-[1.8rem] font-light leading-normal text-white">
+                            Play
+                          </span>
+                        </div>
                       </div>
-                      {/* </div> */}
                     </div>
 
                     <section className="flex items-center gap-[0.6rem] mt-[0.8rem] md:gap-[0.8rem]">
