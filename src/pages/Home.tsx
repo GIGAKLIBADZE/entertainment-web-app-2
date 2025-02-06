@@ -34,7 +34,7 @@ const Home: React.FC = () => {
                       className="swiper-slide"
                       key={item.title}
                     >
-                      <div>
+                      <div className="relative parent">
                         <img
                           src={item.thumbnail.regular.small}
                           alt="Thumbnail"
@@ -53,6 +53,8 @@ const Home: React.FC = () => {
                             alt="Bookmark"
                           />
                         </div>
+                        <HoveredItem />
+                        <div />
                         <section className="flex items-center gap-[0.8rem] ml-[1.6rem] absolute top-[8.6rem]">
                           <small className="description !text-[1.2rem]">
                             {item.year}{" "}
@@ -73,6 +75,7 @@ const Home: React.FC = () => {
                             ? "h-[1.2rem]"
                             : "h-[0.7rem]"
                         }
+                        
                       `}
                             />
                             <small className="description !text-[1.2rem]">
@@ -154,18 +157,6 @@ const Home: React.FC = () => {
                     <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem] md:text-[1.8rem]">
                       {item.title}
                     </p>
-                    {/* <div className="select">
-                      <div className="w-[41.8%] rounded-[2.9rem] h-[4.8rem] bg-amber-200 top-[36.2%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <img
-                          src={Play}
-                          alt="Play"
-                          className="w-[3rem] h-[3rem] "
-                        />
-                        <span className="text-[1.8rem] font-medium leading-normal text-white">
-                          Play
-                        </span>
-                      </div>
-                    </div> */}
                   </div>
                 ))}
             </section>
