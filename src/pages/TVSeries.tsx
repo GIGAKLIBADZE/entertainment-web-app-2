@@ -4,6 +4,7 @@ import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 import SearchResult from "../components/SearchResult";
 import SearchArea from "../components/SearchArea";
+import HoveredItem from "../components/HoveredItem";
 
 const TVSeries: React.FC = () => {
   const { data, toggleBookmark, search } = useContext(MainContext);
@@ -24,19 +25,22 @@ const TVSeries: React.FC = () => {
                 ?.filter((item) => item.category === "TV Series")
                 .map((item) => (
                   <div key={item.title} className="relative w-full">
-                    <img
-                      src={item.thumbnail.regular.small}
-                      alt="Thumbnail"
-                      className="w-full rounded-[8px] object-cover"
-                    />
-                    <div
-                      className="bookmark-container"
-                      onClick={() => toggleBookmark(item.title)}
-                    >
+                    <div className="relative parent">
                       <img
-                        src={item.isBookmarked ? FullBookMark : EmptyBookMark}
-                        alt="Bookmark"
+                        src={item.thumbnail.regular.large}
+                        alt="Thumbnail"
+                        className="item-image"
                       />
+                      <div
+                        className="bookmark-container"
+                        onClick={() => toggleBookmark(item.title)}
+                      >
+                        <img
+                          src={item.isBookmarked ? FullBookMark : EmptyBookMark}
+                          alt="Bookmark"
+                        />
+                      </div>
+                      <HoveredItem />
                     </div>
                     <section className="flex items-center gap-[0.6rem] mt-[0.8rem] md:gap-[0.8rem]">
                       <small className="description">
@@ -45,7 +49,7 @@ const TVSeries: React.FC = () => {
                           •
                         </span>
                       </small>
-                      <div></div>
+
                       <div className="flex items-center gap-[0.4rem]">
                         <img
                           src={

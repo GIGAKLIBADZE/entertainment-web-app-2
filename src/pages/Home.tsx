@@ -3,10 +3,11 @@ import { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
-import Play from "/images/icon-play.svg";
+
 import "swiper/swiper-bundle.css";
 import SearchResult from "../components/SearchResult";
 import SearchArea from "../components/SearchArea";
+import HoveredItem from "../components/HoveredItem";
 
 const Home: React.FC = () => {
   const { data, toggleBookmark, search } = useContext(MainContext);
@@ -118,14 +119,7 @@ const Home: React.FC = () => {
                           alt="Bookmark"
                         />
                       </div>
-                      <div className="bg-black/50 w-full absolute h-[100%] top-0 child cursor-pointer">
-                        <div className="absolute w-[41.8%] rounded-[2.9rem] h-[4.8rem] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center gap-[16.2%] bg-white/25">
-                          <img src={Play} alt="Play" className="" />
-                          <span className="text-[1.8rem] font-light leading-normal text-white">
-                            Play
-                          </span>
-                        </div>
-                      </div>
+                      <HoveredItem />
                     </div>
 
                     <section className="flex items-center gap-[0.6rem] mt-[0.8rem] md:gap-[0.8rem]">

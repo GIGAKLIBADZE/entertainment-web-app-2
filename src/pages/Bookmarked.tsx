@@ -4,6 +4,7 @@ import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
 import SearchResult from "../components/SearchResult";
 import SearchArea from "../components/SearchArea";
+import HoveredItem from "../components/HoveredItem";
 
 const Bookmarked: React.FC = () => {
   const { data, toggleBookmark, search } = useContext(MainContext);
@@ -28,19 +29,24 @@ const Bookmarked: React.FC = () => {
                   )
                   .map((item) => (
                     <div key={item.title} className="relative w-full">
-                      <img
-                        src={item.thumbnail.regular.small}
-                        alt="Thumbnail"
-                        className="w-full rounded-[8px] object-cover"
-                      />
-                      <div
-                        className="bookmark-container"
-                        onClick={() => toggleBookmark(item.title)}
-                      >
+                      <div className="relative parent">
                         <img
-                          src={item.isBookmarked ? FullBookMark : EmptyBookMark}
-                          alt="Bookmark"
+                          src={item.thumbnail.regular.large}
+                          alt="Thumbnail"
+                          className="item-image"
                         />
+                        <div
+                          className="bookmark-container"
+                          onClick={() => toggleBookmark(item.title)}
+                        >
+                          <img
+                            src={
+                              item.isBookmarked ? FullBookMark : EmptyBookMark
+                            }
+                            alt="Bookmark"
+                          />
+                        </div>
+                        <HoveredItem />
                       </div>
                       <section className="flex items-center gap-[0.6rem] mt-[0.8rem] md:gap-[0.8rem]">
                         <small className="description">
@@ -90,13 +96,24 @@ const Bookmarked: React.FC = () => {
                   )
                   .map((item) => (
                     <div key={item.title} className="relative w-full">
-                      <img
-                        src={item.thumbnail.regular.small}
-                        alt="Thumbnail"
-                        className="w-full rounded-[8px] object-cover"
-                      />
-                      <div className="bookmark-container">
-                        <img src={EmptyBookMark} alt="Bookmark" />
+                      <div className="relative parent">
+                        <img
+                          src={item.thumbnail.regular.large}
+                          alt="Thumbnail"
+                          className="item-image"
+                        />
+                        <div
+                          className="bookmark-container"
+                          onClick={() => toggleBookmark(item.title)}
+                        >
+                          <img
+                            src={
+                              item.isBookmarked ? FullBookMark : EmptyBookMark
+                            }
+                            alt="Bookmark"
+                          />
+                        </div>
+                        <HoveredItem />
                       </div>
                       <section className="flex items-center gap-[0.6rem] mt-[0.8rem] md:gap-[0.8rem]">
                         <small className="description">
