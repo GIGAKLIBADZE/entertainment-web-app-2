@@ -148,7 +148,7 @@ body {
      }
 
      .parent:hover .child {
-        @apply visible
+        @apply xl:visible
      }
   }
 
