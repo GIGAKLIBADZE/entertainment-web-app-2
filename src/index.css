@@ -110,7 +110,7 @@ body {
      }
      
      .bookmark-container:hover > img {
-        @apply border-[0.15rem] border-[#10141e] fill-[#ff0000]
+        @apply border-[0.15rem] border-[#10141e] fill-[#ff0000]; filter: invert(1);
      }
 
      .item-div {
