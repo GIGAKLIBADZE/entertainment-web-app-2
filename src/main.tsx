@@ -16,14 +16,6 @@ import SignUp from "./pages/SignUp";
 import SignLayout from "./layouts/SignLayout";
 
 const router = createBrowserRouter([
-  // {
-  //   path: "/SignIn",
-  //   element: <SignIn />,
-  // },
-  // {
-  //   path: "/SignUp",
-  //   element: <SignUp />,
-  // },
   {
     path: "/profile",
     element: <Layout />,

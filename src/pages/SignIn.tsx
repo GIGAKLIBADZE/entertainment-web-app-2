@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { IerrorsSignIn, IUser } from "../types/Types";
 import { useNavigate } from "react-router-dom";
-import SignImg from "../components/SignImg";
 
 const SignIn: React.FC = () => {
   const [errors, setErrors] = useState<IerrorsSignIn>({
