@@ -65,7 +65,7 @@ const SignUp: React.FC = () => {
           ) {
             localStorage.setItem("email", email);
             localStorage.setItem("password", password);
-            navigate("/sign-in");
+            navigate("/sign/sign-in");
           } else if (
             registered ||
             localStorage.getItem("email") === email ||
