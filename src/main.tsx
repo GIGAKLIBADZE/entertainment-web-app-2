@@ -42,7 +42,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Navigate to="/sign/signin" replace />,
+    element: <Navigate to="/sign/sign-in" replace />,
   },
 ]);
 
