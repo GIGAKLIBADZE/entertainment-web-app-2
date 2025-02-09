@@ -23,7 +23,7 @@ export const MainContext = createContext<{
   toggleBookmark: (x: string) => void;
   menu: number;
   setMenu: React.Dispatch<React.SetStateAction<number>>;
-  filterData: () => void;
+
   toggleSearchBookmark: (x: string) => void;
   findResult: (e: React.FormEvent<HTMLFormElement>) => void;
   tablet: boolean;
@@ -38,7 +38,7 @@ export const MainContext = createContext<{
   toggleBookmark: () => {},
   menu: 1,
   setMenu: () => {},
-  filterData: () => {},
+
   toggleSearchBookmark: () => {},
   findResult: () => undefined,
   tablet: false,
@@ -58,14 +58,6 @@ const Layout: React.FC = () => {
 
   const tablet = useMediaQuery(`(min-width: 768px)`);
   const desktop = useMediaQuery(`(min-width: 414rem)`);
-
-  const filterData = () => {
-    if (location.pathname === "/Profile/Home") {
-      setMenu(1);
-    } else if (location.pathname === "/Profile/Movies") {
-      setMenu(2);
-    }
-  };
 
   location.pathname === "/Profile/Movies" ? console.log(location.pathname) : "";
 
@@ -220,7 +212,7 @@ const Layout: React.FC = () => {
           toggleBookmark,
           menu,
           setMenu,
-          filterData,
+
           toggleSearchBookmark,
           findResult,
           tablet,
