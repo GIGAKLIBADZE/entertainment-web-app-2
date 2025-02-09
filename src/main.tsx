@@ -24,9 +24,9 @@ const router = createBrowserRouter([
         path: "/profile/home",
         element: <Home />,
       },
-      { path: "profile/movies", element: <Movies /> },
-      { path: "profile/tv-Series", element: <TVSeries /> },
-      { path: "profile/bookmarked", element: <Bookmarked /> },
+      { path: "/profile/movies", element: <Movies /> },
+      { path: "/profile/tv-Series", element: <TVSeries /> },
+      { path: "/profile/bookmarked", element: <Bookmarked /> },
     ],
   },
   {
