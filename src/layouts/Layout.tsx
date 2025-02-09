@@ -38,7 +38,6 @@ export const MainContext = createContext<{
   toggleBookmark: () => {},
   menu: 1,
   setMenu: () => {},
-
   toggleSearchBookmark: () => {},
   findResult: () => undefined,
   tablet: false,
@@ -130,14 +129,14 @@ const Layout: React.FC = () => {
               alt="All"
               className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
                 hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
-                  location.pathname === "/Profile/Home"
+                  location.pathname === "/profile/home"
                     ? "invert brightness-0"
                     : ""
                 }`}
               onClick={() => {
                 if (menu !== 1) {
                   setMenu(1);
-                  navigate("/Profile/Home");
+                  navigate("/profile/home");
                 }
                 setSearch(false);
               }}
@@ -147,14 +146,14 @@ const Layout: React.FC = () => {
               alt="Movies"
               className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
                 hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
-                  location.pathname === "/Profile/Movies"
+                  location.pathname === "/profile/movies"
                     ? "invert brightness-0"
                     : ""
                 }`}
               onClick={() => {
                 if (menu !== 2) {
                   setMenu(2);
-                  navigate("/Profile/Movies");
+                  navigate("/profile/movies");
                 }
                 setSearch(false);
               }}
@@ -164,14 +163,14 @@ const Layout: React.FC = () => {
               alt="TV Series"
               className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
                 hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer  ${
-                  location.pathname === "/Profile/TVSeries"
+                  location.pathname === "/profile/tv-series"
                     ? "invert brightness-0"
                     : ""
                 }`}
               onClick={() => {
                 if (menu !== 3) {
                   setMenu(3);
-                  navigate("/Profile/TVSeries");
+                  navigate("/profile/tv-series");
                 }
                 setSearch(false);
               }}
@@ -181,14 +180,14 @@ const Layout: React.FC = () => {
               alt="Bookmarked"
               className={`w-[1.4rem] h-[1.6rem] object-contain md:w-[1.7rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
                 hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
-                  location.pathname === "/Profile/Bookmarked"
+                  location.pathname === "/profile/bookmarked"
                     ? "invert brightness-0"
                     : ""
                 }`}
               onClick={() => {
                 if (menu !== 4) {
                   setMenu(4);
-                  navigate("/Profile/Bookmarked");
+                  navigate("/profile/bookmarked");
                 }
                 setSearch(false);
               }}
