@@ -111,7 +111,7 @@ const SignIn: React.FC = () => {
           <span
             className="text-[#fc4747] ml-[0.9rem] cursor-pointer"
             onClick={() => {
-              navigate("../sign-sign-up");
+              navigate("../sign-up");
               setErrors({
                 emailError: false,
                 passwordError: false,

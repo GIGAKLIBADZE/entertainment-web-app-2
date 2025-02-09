@@ -160,7 +160,7 @@ const SignUp: React.FC = () => {
           <span
             className="text-[#fc4747] ml-[0.9rem] cursor-pointer"
             onClick={() => {
-              navigate("../SignIn");
+              navigate("../sign-in");
               setErrors({
                 emailError: false,
                 passwordError: false,
