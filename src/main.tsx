@@ -13,32 +13,44 @@ import TVSeries from "./pages/TVSeries";
 import Bookmarked from "./pages/Bookmarked";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import SignLayout from "./layouts/SignLayout";
 
 const router = createBrowserRouter([
+  // {
+  //   path: "/SignIn",
+  //   element: <SignIn />,
+  // },
+  // {
+  //   path: "/SignUp",
+  //   element: <SignUp />,
+  // },
   {
-    path: "/SignIn",
-    element: <SignIn />,
-  },
-  {
-    path: "/SignUp",
-    element: <SignUp />,
-  },
-  {
-    path: "/Profile",
+    path: "/profile",
     element: <Layout />,
     children: [
       {
-        path: "/Profile/Home",
+        path: "/profile/home",
         element: <Home />,
       },
-      { path: "/Profile/Movies", element: <Movies /> },
-      { path: "/Profile/TVSeries", element: <TVSeries /> },
-      { path: "/Profile/Bookmarked", element: <Bookmarked /> },
+      { path: "profile/movies", element: <Movies /> },
+      { path: "profile/tv-Series", element: <TVSeries /> },
+      { path: "profile/bookmarked", element: <Bookmarked /> },
+    ],
+  },
+  {
+    path: "/sign",
+    element: <SignLayout />,
+    children: [
+      {
+        path: "/sign/signin",
+        element: <SignIn />,
+      },
+      { path: "/sign/signup", element: <SignUp /> },
     ],
   },
   {
     path: "/",
-    element: <Navigate to="/SignIn" replace />,
+    element: <Navigate to="/sign/signin" replace />,
   },
 ]);
 
