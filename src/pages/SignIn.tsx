@@ -47,7 +47,7 @@ const SignIn: React.FC = () => {
           (localStorage.getItem("email") === email &&
             localStorage.getItem("password") === password)
         ) {
-          navigate("/Profile/Home");
+          navigate("/profile/home");
         } else if (
           registered ||
           localStorage.getItem("email") === email ||
@@ -111,7 +111,7 @@ const SignIn: React.FC = () => {
           <span
             className="text-[#fc4747] ml-[0.9rem] cursor-pointer"
             onClick={() => {
-              navigate("../SignUp");
+              navigate("../sign-up");
               setErrors({
                 emailError: false,
                 passwordError: false,

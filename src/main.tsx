@@ -34,10 +34,10 @@ const router = createBrowserRouter([
     element: <SignLayout />,
     children: [
       {
-        path: "/sign/signin",
+        path: "/sign/sign-in",
         element: <SignIn />,
       },
-      { path: "/sign/signup", element: <SignUp /> },
+      { path: "/sign/sign-up", element: <SignUp /> },
     ],
   },
   {
