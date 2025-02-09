@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import SignImg from "../components/SignImg";
-import { IUser } from "../types/Types";
-import { useNavigate } from "react-router-dom";
-import { IerrorsSignUp } from "../types/Types";
-import { IerrorsSignIn } from "../types/Types";
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
 import { Outlet } from "react-router-dom";
-import { createContext } from "react";
 
 const SignLayout: React.FC = () => {
   return (

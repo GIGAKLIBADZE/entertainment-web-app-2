@@ -110,7 +110,7 @@ const SignUp: React.FC = () => {
         <div className="relative">
           <input
             name="password"
-            type="text"
+            type="password"
             placeholder="Password"
             onChange={() =>
               setErrors((prev) => ({ ...prev, passwordError: false }))
@@ -126,7 +126,7 @@ const SignUp: React.FC = () => {
         <div className="relative">
           <input
             name="repeatPassword"
-            type="text"
+            type="password"
             placeholder="Repeat Password"
             onChange={() => {
               setMatchError(() => ({
