@@ -43,7 +43,6 @@ const SearchResult: React.FC = () => {
                       •
                     </span>
                   </small>
-                  <div></div>
                   <div className="flex items-center gap-[0.4rem]">
                     <img
                       src={
@@ -63,8 +62,6 @@ const SearchResult: React.FC = () => {
                       </span>
                     </small>
                   </div>
-
-                  <div></div>
                   <small className="description">{item.rating}</small>
                 </section>
                 <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem] md:text-[1.8rem]">

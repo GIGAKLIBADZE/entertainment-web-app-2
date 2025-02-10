@@ -6,42 +6,26 @@ import TVSeries from "/images/icon-nav-tv-series.svg";
 import Bookmarked from "/images/icon-nav-bookmark.svg";
 import Profile from "/images/image-avatar.png";
 import { Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import { Idata } from "../types/Types";
-import { createContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const MainContext = createContext<{
-  fetchData: () => Promise<void>;
   data: Idata[] | null | undefined;
-  setData: React.Dispatch<React.SetStateAction<Idata[] | null | undefined>>;
   search: boolean;
   setSearch: React.Dispatch<React.SetStateAction<boolean>>;
   lookingFor: Idata[] | null | undefined;
   toggleBookmark: (x: string) => void;
-  menu: number;
-  setMenu: React.Dispatch<React.SetStateAction<number>>;
-
   toggleSearchBookmark: (x: string) => void;
   findResult: (e: React.FormEvent<HTMLFormElement>) => void;
-  tablet: boolean;
-  desktop: boolean;
 }>({
-  fetchData: async () => {},
   data: null,
-  setData: () => {},
   search: false,
   setSearch: () => {},
   lookingFor: null,
   toggleBookmark: () => {},
-  menu: 1,
-  setMenu: () => {},
   toggleSearchBookmark: () => {},
   findResult: () => undefined,
-  tablet: false,
-  desktop: false,
 });
 
 const Layout: React.FC = () => {
@@ -54,11 +38,6 @@ const Layout: React.FC = () => {
   const [menu, setMenu] = useState<number>(1);
 
   const location = useLocation();
-
-  const tablet = useMediaQuery(`(min-width: 768px)`);
-  const desktop = useMediaQuery(`(min-width: 414rem)`);
-
-  location.pathname === "/Profile/Movies" ? console.log(location.pathname) : "";
 
   const toggleSearchBookmark = (title: string) => {
     setLookingFor((prev) =>
@@ -94,12 +73,7 @@ const Layout: React.FC = () => {
     const filteredData = data?.filter((item) =>
       item.title.toLowerCase().includes(search)
     );
-
-    // return test;
-    // setData(filterData);
-    //
     setLookingFor(filteredData);
-    // setData(lookingFor);
   };
 
   const fetchData = async () => {
@@ -127,12 +101,11 @@ const Layout: React.FC = () => {
             <img
               src={All}
               alt="All"
-              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
-                hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
-                  location.pathname === "/profile/home"
-                    ? "invert brightness-0"
-                    : ""
-                }`}
+              className={`menu-picture ${
+                location.pathname === "/profile/home"
+                  ? "invert brightness-0"
+                  : ""
+              }`}
               onClick={() => {
                 if (menu !== 1) {
                   setMenu(1);
@@ -144,12 +117,11 @@ const Layout: React.FC = () => {
             <img
               src={Movies}
               alt="Movies"
-              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
-                hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
-                  location.pathname === "/profile/movies"
-                    ? "invert brightness-0"
-                    : ""
-                }`}
+              className={`menu-picture ${
+                location.pathname === "/profile/movies"
+                  ? "invert brightness-0"
+                  : ""
+              }`}
               onClick={() => {
                 if (menu !== 2) {
                   setMenu(2);
@@ -161,12 +133,11 @@ const Layout: React.FC = () => {
             <img
               src={TVSeries}
               alt="TV Series"
-              className={`w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
-                hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer  ${
-                  location.pathname === "/profile/tv-series"
-                    ? "invert brightness-0"
-                    : ""
-                }`}
+              className={`menu-picture  ${
+                location.pathname === "/profile/tv-series"
+                  ? "invert brightness-0"
+                  : ""
+              }`}
               onClick={() => {
                 if (menu !== 3) {
                   setMenu(3);
@@ -178,12 +149,11 @@ const Layout: React.FC = () => {
             <img
               src={Bookmarked}
               alt="Bookmarked"
-              className={`w-[1.4rem] h-[1.6rem] object-contain md:w-[1.7rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] hover:saturate-[600%] 
-                hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer ${
-                  location.pathname === "/profile/bookmarked"
-                    ? "invert brightness-0"
-                    : ""
-                }`}
+              className={`menu-picture w-[1.4rem] md:h-[2rem] ${
+                location.pathname === "/profile/bookmarked"
+                  ? "invert brightness-0"
+                  : ""
+              }`}
               onClick={() => {
                 if (menu !== 4) {
                   setMenu(4);
@@ -196,26 +166,20 @@ const Layout: React.FC = () => {
           <img
             src={Profile}
             alt="Profile"
-            className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] md:w-[3.2rem] md:h-[3.2rem] xl:w-[4rem] xl:h-[4rem]"
+            className="w-[2.4rem] h-[2.4rem] border-solid border rounded-[50%] border-[#fff] md:w-[3.2rem] 
+            md:h-[3.2rem] xl:w-[4rem] xl:h-[4rem]"
           />
         </div>
       </div>
       <MainContext.Provider
         value={{
           data,
-          setData,
-          fetchData,
           search,
           setSearch,
           lookingFor,
           toggleBookmark,
-          menu,
-          setMenu,
-
           toggleSearchBookmark,
           findResult,
-          tablet,
-          desktop,
         }}
       >
         <Outlet />

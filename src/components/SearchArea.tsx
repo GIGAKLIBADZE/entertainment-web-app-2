@@ -8,7 +8,8 @@ const SearchArea: React.FC = () => {
   return (
     <form
       onSubmit={findResult}
-      className="pl-[1.6rem] flex items-start gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] md:gap-[2.4rem] xl:pt-[6.8rem] xl:mt-0 xl:ml-[3.6rem] xl:pl-0"
+      className="pl-[1.6rem] flex items-start gap-[1.9rem] mt-[2.6rem] md:pl-[2.9rem] 
+      md:gap-[2.4rem] xl:pt-[6.8rem] xl:mt-0 xl:ml-[3.6rem] xl:pl-0"
     >
       <button>
         <img
@@ -23,7 +24,9 @@ const SearchArea: React.FC = () => {
       <input
         type="text"
         placeholder="Search for movies or TV series"
-        className="caret-[#fc4747] w-full mr-[1.6rem] md:mr-[] xl:mr-[3.5rem] text-[1.6rem] font-light leading-normal text-[#fff] outline-none md:text-[2.4rem] xl:wfull cursor-pointer focus:cursor-text focus:border-b focus:border-[#5a698f] pb-[1.5rem]"
+        className="caret-[#fc4747] w-full mr-[1.6rem] md:mr-[] xl:mr-[3.5rem] text-[1.6rem] font-light leading-normal 
+        text-[#fff] outline-none md:text-[2.4rem] xl:wfull cursor-pointer focus:cursor-text focus:border-b 
+        focus:border-[#5a698f] pb-[1.5rem]"
         name="search"
       />
     </form>

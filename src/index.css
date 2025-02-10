@@ -167,11 +167,11 @@ body {
         @apply w-[24.5rem]
      }
      
-     /* .swiper-slide {
-      @apply 
-       
-        w-[24.5rem]
-     } */
+     .menu-picture {
+      @apply w-[1.6rem] h-[1.6rem] object-contain md:w-[2rem] md:h-[2rem] hover:invert-[38%] hover:sepia-[100%] 
+      hover:saturate-[600%] 
+      hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer
+     }
   }
 
   /* // blend mode */
