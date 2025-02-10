@@ -75,8 +75,6 @@ const Bookmarked: React.FC = () => {
                             </span>
                           </small>
                         </div>
-
-                        <div></div>
                         <small className="description">{item.rating}</small>
                       </section>
                       <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem] md:text-[1.8rem]">
@@ -142,8 +140,6 @@ const Bookmarked: React.FC = () => {
                             </span>
                           </small>
                         </div>
-
-                        <div></div>
                         <small className="description">{item.rating}</small>
                       </section>
                       <p className="text-[1.4rem] font-medium leading-normal text-[#fff] mt-[0.6rem] md:text-[1.8rem]">

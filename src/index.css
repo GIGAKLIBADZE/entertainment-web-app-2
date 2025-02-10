@@ -172,6 +172,23 @@ body {
       hover:saturate-[600%] 
       hover:hue-rotate-[-10deg] hover:brightness-[100%] hover:contrast-[200%] cursor-pointer
      }
+
+     .custom-input {
+      @apply caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light 
+      leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text
+     }
+
+     .custom-error {
+      @apply text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]
+      text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]
+      text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]
+      text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]
+     }
+
+     .custom-button {
+      @apply w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal 
+      text-[#fff] mt-[5.4rem] cursor-pointer hover:bg-[#fff] hover:text-[#161d2f]
+     }
   }
 
   /* // blend mode */

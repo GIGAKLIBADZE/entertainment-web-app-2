@@ -99,12 +99,10 @@ const SignUp: React.FC = () => {
             onChange={() =>
               setErrors((prev) => ({ ...prev, emailError: false }))
             }
-            className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[2.3rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+            className="custom-input mt-[2.3rem]"
           />
           {errors.emailError ? (
-            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
-              Can't be empty
-            </p>
+            <p className="custom-error">Can't be empty</p>
           ) : null}
         </div>
         <div className="relative">
@@ -115,12 +113,10 @@ const SignUp: React.FC = () => {
             onChange={() =>
               setErrors((prev) => ({ ...prev, passwordError: false }))
             }
-            className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+            className="custom-input"
           />
           {errors.passwordError ? (
-            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
-              Can't be empty
-            </p>
+            <p className="custom-error">Can't be empty</p>
           ) : null}
         </div>
         <div className="relative">
@@ -134,17 +130,13 @@ const SignUp: React.FC = () => {
               }));
               setErrors((prev) => ({ ...prev, repeatPasswordError: false }));
             }}
-            className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+            className="custom-input"
           />
           {errors.repeatPasswordError ? (
-            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
-              Can't be empty
-            </p>
+            <p className="custom-error">Can't be empty</p>
           ) : null}
           {matchError.repeatPasswordError && !errors.repeatPasswordError ? (
-            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
-              Passwords do not match
-            </p>
+            <p className="custom-error">Passwords do not match</p>
           ) : null}
         </div>
         {existError.userexistError ? (
@@ -152,9 +144,7 @@ const SignUp: React.FC = () => {
             email or password (or both) already exist
           </p>
         ) : null}
-        <button className="w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal text-[#fff] mt-[5.4rem] cursor-pointer hover:bg-[#fff] hover:text-[#161d2f]">
-          Create an account
-        </button>
+        <button className="custom-button">Create an account</button>
         <p className="text-[1.5rem] font-light leading-normal text-[#fff] mt-[2.4rem] text-center">
           Already have an account?
           <span

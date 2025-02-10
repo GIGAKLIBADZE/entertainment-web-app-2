@@ -25,11 +25,6 @@ const SignIn: React.FC = () => {
     const email = (e.target as HTMLFormElement).email.value;
     const password = (e.target as HTMLFormElement).password.value;
 
-    // let user = {
-    //   email: email,
-    //   password: password,
-    // };
-
     setErrors((prevErrors) => ({
       ...prevErrors,
       emailError: !email,
@@ -74,12 +69,10 @@ const SignIn: React.FC = () => {
             onChange={() =>
               setErrors((prev) => ({ ...prev, emailError: false }))
             }
-            className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[2.3rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+            className="custom-input mt-[2.3rem]"
           />
           {errors.emailError ? (
-            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
-              Can't be empty
-            </p>
+            <p className="custom-error">Can't be empty</p>
           ) : null}
         </div>
         <div className="relative">
@@ -90,12 +83,10 @@ const SignIn: React.FC = () => {
             onChange={() =>
               setErrors((prev) => ({ ...prev, passwordError: false }))
             }
-            className="caret-[#fc4747] w-full outline-none border-b border-[#5a698f] text-[1.5rem] font-light leading-normal text-[#fff] indent-[1.6rem] py-[1.7rem] mt-[0.7rem] cursor-pointer focus:border-[#fff] focus:cursor-text"
+            className="custom-input"
           />
           {errors.passwordError ? (
-            <p className="text-[1.3rem] font-light leading-normal text-[#fc4747] absolute right-[1.7rem] mt-[-3.9rem]">
-              Can't be empty
-            </p>
+            <p className="custom-error">Can't be empty</p>
           ) : null}
         </div>
         {existError.userexistError ? (
@@ -103,9 +94,7 @@ const SignIn: React.FC = () => {
             email or password (or both) already exist
           </p>
         ) : null}
-        <button className="w-full h-[4.8rem] rounded-[6px] bg-[#fc4747] outline-none text-[1.5rem] font-light leading-normal text-[#fff] mt-[5.4rem] cursor-pointer hover:bg-[#fff] hover:text-[#161d2f]">
-          Login to your account
-        </button>
+        <button className="custom-button">Login to your account</button>
         <p className="text-[1.5rem] font-light leading-normal text-[#fff] mt-[2.4rem] text-center">
           Don’t have an account?
           <span

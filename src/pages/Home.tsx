@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import EmptyBookMark from "/images/icon-bookmark-empty.svg";
 import FullBookMark from "/images/icon-bookmark-full.svg";
-
 import "swiper/swiper-bundle.css";
 import SearchResult from "../components/SearchResult";
 import SearchArea from "../components/SearchArea";
@@ -90,8 +89,7 @@ const Home: React.FC = () => {
                           item.category === "Movie"
                             ? "h-[1.2rem]"
                             : "h-[0.7rem]"
-                        }
-                        
+                        }   
                       `}
                             />
                             <small className="description !text-[1.2rem]">
@@ -101,7 +99,6 @@ const Home: React.FC = () => {
                               </span>
                             </small>
                           </div>
-
                           <small className="description !text-[1.2rem]">
                             {item.rating}
                           </small>
@@ -148,7 +145,6 @@ const Home: React.FC = () => {
                           •
                         </span>
                       </small>
-                      <div></div>
                       <div className="flex items-center gap-[0.4rem]">
                         <img
                           src={
