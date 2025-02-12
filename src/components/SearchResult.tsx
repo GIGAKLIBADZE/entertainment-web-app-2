@@ -5,7 +5,8 @@ import FullBookMark from "/images/icon-bookmark-full.svg";
 import HoveredItem from "./HoveredItem";
 
 const SearchResult: React.FC = () => {
-  const { lookingFor, search, toggleBookmark } = useContext(MainContext);
+  const { lookingFor, search, toggleBookmark, data, toggleSearchBookmark } =
+    useContext(MainContext);
 
   return (
     <div className="mt-[2.4rem] pb-[1.6rem]">
@@ -27,7 +28,10 @@ const SearchResult: React.FC = () => {
                   />
                   <div
                     className="bookmark-container"
-                    onClick={() => toggleBookmark(item.title)}
+                    onClick={() => {
+                      toggleBookmark(item.title);
+                      toggleSearchBookmark(item.title);
+                    }}
                   >
                     <img
                       src={item.isBookmarked ? FullBookMark : EmptyBookMark}
